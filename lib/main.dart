@@ -1,4 +1,4 @@
-import 'package:campus_car_joco/auth/views/login_screen.dart';
+import 'package:campus_car_joco/auth/views/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       title: 'Campus Car',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: SignUpScreen(),
     );
   }
 }

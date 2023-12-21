@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:campus_car_joco/auth/views/login_screen.dart';
-import 'package:campus_car_joco/utils.dart';
+import 'package:campus_car_joco/utils/utils.dart';
 import 'package:campus_car_joco/widgets/my_fadein.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

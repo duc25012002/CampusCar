@@ -1,14 +1,14 @@
 import 'package:campus_car_joco/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State createState() => LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _controllerEmail = TextEditingController();
   final _controllerPass = TextEditingController();
   bool isLoading = false;
@@ -101,33 +101,6 @@ class LoginScreenState extends State<LoginScreen> {
                 ),
               )),
           const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const Text(
-                "Forgot Password ?",
-                style: TextStyle(
-                    // color: Constants.primaryBlue,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Don't have an Account ?",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
         ],
       ),
     );
