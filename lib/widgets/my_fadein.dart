@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyFadeIn extends StatefulWidget {
   final Widget child;
-  const MyFadeIn({required this.child});
+  const MyFadeIn({super.key, required this.child});
 
   @override
   createState() => _MyFadeInState();
@@ -16,7 +16,7 @@ class _MyFadeInState extends State<MyFadeIn>
   @override
   void initState() {
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     super.initState();
   }
