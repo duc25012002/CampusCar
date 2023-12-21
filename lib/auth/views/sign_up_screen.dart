@@ -44,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       child: Icon(
                         Icons.email,
-                        color: ColorConst.primaryBlue,
+                        color: ColorConst.primaryColor,
                       ),
                     ),
                     border: InputBorder.none,
@@ -69,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       child: Icon(
                         Icons.lock,
-                        color: ColorConst.primaryBlue,
+                        color: ColorConst.primaryColor,
                       ),
                     ),
                     border: InputBorder.none,
@@ -85,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(100)),
-                    color: ColorConst.primaryBlue),
+                    color: ColorConst.primaryColor),
                 child: TextButton(
                   child: const Text(
                     "Login",

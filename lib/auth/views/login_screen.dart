@@ -1,5 +1,5 @@
 import 'package:campus_car_joco/auth/controller/Login_Controller.dart';
-import 'package:campus_car_joco/utils.dart';
+import 'package:campus_car_joco/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 class LoginScreenState extends State<LoginScreen> {
   bool isLoading = false;
   late LoginController _controller;
+  
   @override
   void initState() {
     _controller = Get.find<LoginController>();
