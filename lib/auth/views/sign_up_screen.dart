@@ -1,5 +1,8 @@
+import 'package:campus_car_joco/auth/controller/SignUpController.dart';
+import 'package:campus_car_joco/routes/routes.dart';
 import 'package:campus_car_joco/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -9,9 +12,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final _controllerEmail = TextEditingController();
-  final _controllerPass = TextEditingController();
-  bool isLoading = false;
+  late SignUpController _controller;
+
+  @override
+  void initState() {
+    _controller = Get.find<SignUpController>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         children: [
           Container(
             width: MediaQuery.sizeOf(context).width,
-            height: 300,
+            height: 350,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/icon/header_logo_login.jpeg"),
@@ -35,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               elevation: 2.0,
               borderRadius: const BorderRadius.all(Radius.circular(30)),
               child: TextField(
-                controller: _controllerEmail,
+                controller: _controller.controllerUserName,
                 cursorColor: ColorConst.blue3,
                 decoration: InputDecoration(
                     hintText: "Email",
@@ -60,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               elevation: 2.0,
               borderRadius: const BorderRadius.all(Radius.circular(30)),
               child: TextField(
-                controller: _controllerPass,
+                controller: _controller.controllerUserPass,
                 cursorColor: ColorConst.blue5,
                 decoration: InputDecoration(
                     hintText: "Password",
@@ -83,12 +90,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
               child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(100)),
-                    color: ColorConst.primaryColor),
-                child: TextButton(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(100))),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorConst.primaryColor),
                   child: const Text(
-                    "Login",
+                    "Sign Up",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -97,6 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   onPressed: () {
                     debugPrint("Aaaaaa");
+                    Get.toNamed(Routes.signUp);
                   },
                 ),
               )),

@@ -1,4 +1,5 @@
 import 'package:campus_car_joco/auth/controller/Login_Controller.dart';
+import 'package:campus_car_joco/routes/routes.dart';
 import 'package:campus_car_joco/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   late LoginController _controller;
-  
+
   @override
   void initState() {
     _controller = Get.find<LoginController>();
@@ -26,7 +27,7 @@ class LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             width: MediaQuery.sizeOf(context).width,
-            height: 300,
+            height: 350,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/icon/header_logo_login.jpeg"),
@@ -93,13 +94,12 @@ class LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 32),
                   child: Container(
                     width: 140,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(100)),
-                        color: ColorConst.primaryColor),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                    ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: ColorConst.primaryColor,
+                        backgroundColor: ColorConst.primaryColor,
                       ),
                       child: const Text(
                         "Sign up",
@@ -111,6 +111,7 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                       onPressed: () {
                         debugPrint("register");
+                        Get.toNamed(Routes.signUp);
                       },
                     ),
                   )),
@@ -118,10 +119,9 @@ class LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 32),
                   child: Container(
                     width: 140,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(100)),
-                        color: ColorConst.primaryColor),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                    ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: ColorConst.primaryColor,
@@ -148,11 +148,8 @@ class LoginScreenState extends State<LoginScreen> {
             },
             child: const Center(
               child: Text(
-                "Forgot Password ?",
-                style: TextStyle(
-                    // color: Constants.primaryColor,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700),
+                "Forgot Password ? Refresh Password",
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
               ),
             ),
           ),
