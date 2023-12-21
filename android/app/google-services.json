@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "476564192123",
+    "project_id": "jcampuscar",
+    "storage_bucket": "jcampuscar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476564192123:android:2eb4ea38788cca89419bde",
+        "android_client_info": {
+          "package_name": "com.example.campus_car_joco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVEoWlUpv6o3OUqDdRGuFfNJq32gJnX4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
