@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../auth/controller/Login_Controller.dart';
+
 class ManagerBindings implements Bindings {
   @override
   void dependencies() async {
@@ -25,6 +27,6 @@ class ManagerBindings implements Bindings {
   // }
 
   void _initController() async {
-    //  Get.lazyPut(() => LoginController(), fenix: true);
+    Get.lazyPut(() => LoginController(), fenix: true);
   }
 }

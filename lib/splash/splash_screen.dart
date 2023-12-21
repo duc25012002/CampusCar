@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(
                     fontFamily: 'CarterOne',
                     fontSize: 40,
-                    color: ColorConst.primaryBlue)),
+                    color: ColorConst.primaryColor)),
             const SizedBox(
               height: 20,
             ),

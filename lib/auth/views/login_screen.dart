@@ -1,5 +1,7 @@
+import 'package:campus_car_joco/auth/controller/Login_Controller.dart';
 import 'package:campus_car_joco/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,9 +11,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  final _controllerEmail = TextEditingController();
-  final _controllerPass = TextEditingController();
   bool isLoading = false;
+  late LoginController _controller;
+  @override
+  void initState() {
+    _controller = Get.find<LoginController>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +34,14 @@ class LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 30),
+          SizedBox(height: MediaQuery.sizeOf(context).height / 6),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Material(
               elevation: 2.0,
               borderRadius: const BorderRadius.all(Radius.circular(30)),
               child: TextField(
-                controller: _controllerEmail,
+                controller: _controller.controllerUserName,
                 cursorColor: ColorConst.blue3,
                 decoration: InputDecoration(
                     hintText: "Email",
@@ -44,7 +50,7 @@ class LoginScreenState extends State<LoginScreen> {
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       child: Icon(
                         Icons.email,
-                        color: ColorConst.primaryBlue,
+                        color: ColorConst.primaryColor,
                       ),
                     ),
                     border: InputBorder.none,
@@ -60,7 +66,7 @@ class LoginScreenState extends State<LoginScreen> {
               elevation: 2.0,
               borderRadius: const BorderRadius.all(Radius.circular(30)),
               child: TextField(
-                controller: _controllerPass,
+                controller: _controller.controllerUserPass,
                 cursorColor: ColorConst.blue5,
                 decoration: InputDecoration(
                     hintText: "Password",
@@ -69,7 +75,7 @@ class LoginScreenState extends State<LoginScreen> {
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       child: Icon(
                         Icons.lock,
-                        color: ColorConst.primaryBlue,
+                        color: ColorConst.primaryColor,
                       ),
                     ),
                     border: InputBorder.none,
@@ -80,53 +86,75 @@ class LoginScreenState extends State<LoginScreen> {
             ),
           ),
           const SizedBox(height: 25),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(100)),
-                    color: ColorConst.primaryBlue),
-                child: TextButton(
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                    ),
-                  ),
-                  onPressed: () {
-                    debugPrint("Aaaaaa");
-                  },
-                ),
-              )),
-          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: Container(
+                    width: 140,
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100)),
+                        color: ColorConst.primaryColor),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorConst.primaryColor,
+                      ),
+                      child: const Text(
+                        "Sign up",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        debugPrint("register");
+                      },
+                    ),
+                  )),
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: Container(
+                    width: 140,
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100)),
+                        color: ColorConst.primaryColor),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: ColorConst.primaryColor,
+                      ),
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        debugPrint("login");
+                      },
+                    ),
+                  )),
+            ],
+          ),
+          const SizedBox(height: 50),
+          GestureDetector(
+            onTap: () {
+              debugPrint("Forgot");
+            },
+            child: const Center(
+              child: Text(
                 "Forgot Password ?",
                 style: TextStyle(
-                    // color: Constants.primaryBlue,
+                    // color: Constants.primaryColor,
                     fontSize: 13,
                     fontWeight: FontWeight.w700),
               ),
-              GestureDetector(
-                onTap: () {},
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Don't have an Account ?",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
-              )
-            ],
+            ),
           ),
         ],
       ),
