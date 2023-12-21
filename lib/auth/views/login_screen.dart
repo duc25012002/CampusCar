@@ -11,7 +11,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  bool isLoading = false;
   late LoginController _controller;
   
   @override
@@ -125,7 +124,7 @@ class LoginScreenState extends State<LoginScreen> {
                         color: ColorConst.primaryColor),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: ColorConst.primaryColor,
+                        backgroundColor: ColorConst.primaryColor,
                       ),
                       child: const Text(
                         "Login",
