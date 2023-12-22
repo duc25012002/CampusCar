@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(height: Reponsive.height * 0.02),
           Text(
-            "---OR---",
+            ">---OR---<",
             style: GoogleFonts.inter(
               fontSize: Reponsive.fontSize * 5,
               fontWeight: FontWeight.w700,
