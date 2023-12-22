@@ -1,7 +1,7 @@
 import 'package:campus_car_joco/auth/controller/LoginController.dart';
-import 'package:campus_car_joco/auth/models/AuthLogin.dart';
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/components/MainInput.dart';
+import 'package:campus_car_joco/models/AuthLogin.dart';
 import 'package:campus_car_joco/routes/Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

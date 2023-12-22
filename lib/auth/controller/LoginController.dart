@@ -1,14 +1,15 @@
-import 'dart:convert';
+// ignore_for_file: prefer_interpolation_to_compose_strings
 
-import 'package:campus_car_joco/api/api-define.dart';
-import 'package:campus_car_joco/api/server.dart';
-import 'package:campus_car_joco/auth/models/AuthLogin.dart';
-import 'package:campus_car_joco/auth/models/login_model.dart';
+import 'package:campus_car_joco/api/ApiDefine.dart';
+import 'package:campus_car_joco/api/Server.dart';
+import 'package:campus_car_joco/models/AuthLogin.dart';
+import 'package:campus_car_joco/models/LoginModel.dart';
+import 'package:campus_car_joco/routes/Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../widgets/custom_snackbar.dart';
+import '../../widgets/CustomSnackbar.dart';
 
 class LoginController extends GetxController {
   final controllerUserName = TextEditingController();
@@ -27,28 +28,22 @@ class LoginController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('tokenApi');
 
-    //Map body = {'username': authLogin.userName, 'password': authLogin.userPass};
-
-    // String jsonBody = json.encode(body);
     var response = await server.postRequest(
-        // ignore: prefer_interpolation_to_compose_strings
         endPoint: Api.login +
             "username=${authLogin.userName}" +
             '&' +
             "password=${authLogin.userPass}",
         token: token);
-    print(response.statusCode);
 
     if (response != null && response.statusCode == 200) {
       LoginModel? loginModel;
-
       loginModel = loginModelFromJson(response.body);
-      print(loginModel.id);
       if (loginModel.code == -1) {
-        customSnackbar("Fail", "Login unsuccessful", Colors.red);
+        customSnackbar("Fail", "Login Failed", Colors.red);
       } else {
         controllerUserName.clear();
         controllerUserPass.clear();
+        Get.offAllNamed(Routes.home);
         customSnackbar("Successful", "Welcome Back!", Colors.green);
       }
     }

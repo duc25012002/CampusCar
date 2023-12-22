@@ -1,4 +1,4 @@
-import 'package:campus_car_joco/api/server.dart';
+import 'package:campus_car_joco/api/Server.dart';
 import 'package:campus_car_joco/di/ManagerBindings.dart';
 import 'package:campus_car_joco/routes/Routes.dart';
 import 'package:campus_car_joco/utils/Utils.dart';
@@ -14,7 +14,7 @@ void main() async {
       title: 'Campus Car',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(primaryColor: ColorConst.primaryColor),
-      initialRoute: Routes.home,
+      initialRoute: Routes.login,
       getPages: getPages,
     ),
   );
