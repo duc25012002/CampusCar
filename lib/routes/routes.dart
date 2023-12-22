@@ -1,5 +1,5 @@
-import 'package:campus_car_joco/auth/views/login_screen.dart';
-import 'package:campus_car_joco/auth/views/sign_up_screen.dart';
+import 'package:campus_car_joco/auth/views/LoginScreen.dart';
+import 'package:campus_car_joco/auth/views/SignUpScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class Routes {

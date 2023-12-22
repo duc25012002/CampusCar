@@ -1,6 +1,6 @@
 import 'package:campus_car_joco/auth/controller/SignUpController.dart';
-import 'package:campus_car_joco/routes/routes.dart';
-import 'package:campus_car_joco/utils/utils.dart';
+import 'package:campus_car_joco/routes/Routes.dart';
+import 'package:campus_car_joco/utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -87,29 +87,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
           const SizedBox(height: 25),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: Container(
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(100))),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConst.primaryColor),
-                  child: const Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                    ),
-                  ),
-                  onPressed: () {
-                    debugPrint("Aaaaaa");
-                    Get.toNamed(Routes.signUp);
-                  },
+          Container(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(100))),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: ColorConst.primaryColor),
+              child: const Text(
+                "Sign Up",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
                 ),
-              )),
-          const SizedBox(height: 20),
+              ),
+              onPressed: () {
+                debugPrint("Aaaaaa");
+                Get.toNamed(Routes.signUp);
+              },
+            ),
+          ),
+          const Text("---OR---"),
         ],
       ),
     );
