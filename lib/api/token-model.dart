@@ -1,26 +1,25 @@
 import 'dart:convert';
 
-LoginModel loginModelFromJson(String str) =>
-    LoginModel.fromJson(json.decode(str));
+TokenModel tokenModelFromJson(String str) =>
+    TokenModel.fromJson(json.decode(str));
 
 //String loginModelToJson(LoginModel data) => json.encode(data.toJson());
 
-class LoginModel {
-  LoginModel({
+class TokenModel {
+  TokenModel({
     this.code,
     this.message,
-    this.id,
+    this.token,
   });
 
   int? code;
   String? message;
+  String? token;
 
-  int? id;
-
-  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
+  factory TokenModel.fromJson(Map<String, dynamic> json) => TokenModel(
         code: json["code"],
         message: json["message"],
-        id: json["data"] != null ? json["data"]["userId"] : -1,
+        token: json["data"] != null ? json["data"]["AccessToken"] : '',
       );
 
   // Map<String, dynamic> toJson() => {

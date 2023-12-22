@@ -1,17 +1,20 @@
-import 'package:campus_car_joco/auth/controller/Login_Controller.dart';
-import 'package:campus_car_joco/auth/models/Auth_Login.dart';
-import 'package:campus_car_joco/utils.dart';
+import 'package:campus_car_joco/auth/controller/LoginController.dart';
+
+import 'package:campus_car_joco/auth/models/AuthLogin.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+import '../../utils/utils.dart';
+
+class LoginScreen2 extends StatefulWidget {
+  const LoginScreen2({super.key});
 
   @override
-  State createState() => LoginScreenState();
+  State createState() => LoginScreen2State();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class LoginScreen2State extends State<LoginScreen2> {
   bool isLoading = false;
   late LoginController _controller;
   final formKey = GlobalKey<FormState>();
