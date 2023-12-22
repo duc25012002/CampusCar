@@ -1,7 +1,7 @@
-// ignore: file_names
+import 'package:campus_car_joco/auth/controller/LoginController.dart';
+import 'package:campus_car_joco/auth/models/AuthLogin.dart';
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/components/MainInput.dart';
-import 'package:campus_car_joco/auth/controller/LoginController.dart';
 import 'package:campus_car_joco/routes/Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,7 +54,13 @@ class LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MainButton(
-                onCLick: () {},
+                onCLick: () async {
+                  _controller.login(AuthLogin(
+                    userName: _controller.controllerUserName.text,
+                    userPass: _controller.controllerUserPass.text,
+                  ));
+                  debugPrint("Login");
+                },
                 title: "Login",
               ),
               MainButton(
