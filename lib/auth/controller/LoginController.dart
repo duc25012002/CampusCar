@@ -6,6 +6,7 @@ import 'package:campus_car_joco/api/ApiDefine.dart';
 import 'package:campus_car_joco/api/Server.dart';
 import 'package:campus_car_joco/models/AuthLogin.dart';
 import 'package:campus_car_joco/models/LoginModel.dart';
+import 'package:campus_car_joco/routes/routes.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,8 +44,10 @@ class LoginController extends GetxController {
       LoginModel? loginModel;
       loginModel = loginModelFromJson(response.body);
 
-      //print(loginModel.id);
-      if (loginModel.code == -1) {
+      print(loginModel.code);
+      if (loginModel.code == 0 ||
+          authLogin.userName == "" ||
+          authLogin.userPass == "") {
         customSnackbar("Fail", "Login Failed", Colors.red);
       } else {
         controllerUserName.clear();
@@ -56,6 +59,7 @@ class LoginController extends GetxController {
         };
         prefs.setString("AccountInstant", jsonEncode(body));
         customSnackbar("Successful", "Welcome Back!", Colors.green);
+        Get.toNamed(Routes.home);
       }
     }
   }

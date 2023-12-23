@@ -33,7 +33,10 @@ dependencies:
   # hex color
   hexcolor: ^3.0.1
   shared_preferences: ^2.2.2
+  # notification
+  awesome_notifications: ^0.8.3
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
