@@ -11,6 +11,7 @@ void main() async {
   await Server.getTokenApi();
   ManagerBindings().dependencies();
   AwesomeNotificationsService.init();
+
   runApp(
     GetMaterialApp(
       title: 'Campus Car',

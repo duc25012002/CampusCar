@@ -1,8 +1,7 @@
-import 'dart:developer';
+import 'dart:async';
 
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AwesomeNotificationsService {
   AwesomeNotificationsService._();
@@ -44,11 +43,27 @@ class AwesomeNotificationsService {
           playSound: true,
           importance: NotificationImportance.Max,
         ),
+        NotificationChannel(
+          channelGroupKey: NotificationChannels.schelduleChannelGroupKey,
+          channelKey: NotificationChannels.schelduleChannelKey,
+          channelName: NotificationChannels.schelduleChannelName,
+          groupKey: NotificationChannels.schelduleGroupKey,
+          channelDescription: NotificationChannels.schelduleChannelDescription,
+          defaultColor: Colors.green,
+          ledColor: Colors.white,
+          channelShowBadge: true,
+          playSound: true,
+          importance: NotificationImportance.Max,
+        ),
       ],
       channelGroups: [
         NotificationChannelGroup(
           channelGroupKey: NotificationChannels.generalChannelGroupKey,
           channelGroupName: NotificationChannels.generalChannelGroupName,
+        ),
+        NotificationChannelGroup(
+          channelGroupKey: NotificationChannels.schelduleChannelKey,
+          channelGroupName: NotificationChannels.schelduleChannelGroupName,
         ),
       ],
     );
@@ -69,6 +84,7 @@ class AwesomeNotificationsService {
     final bool schedule = false,
     final int? interval,
   }) async {
+    DateTime scheduledTime = DateTime.now().add(const Duration(seconds: 10));
     awesomeNotifications.isNotificationAllowed().then((isAllowed) async {
       if (isAllowed) {
         awesomeNotifications.createNotification(
@@ -86,15 +102,22 @@ class AwesomeNotificationsService {
             largeIcon: largeIcon,
           ),
           schedule: schedule
-              ? NotificationInterval(
-                  interval: interval,
-                  timeZone:
-                      await awesomeNotifications.getLocalTimeZoneIdentifier(),
-                  preciseAlarm: true)
+              ? NotificationCalendar.fromDate(date: scheduledTime)
               : null,
           actionButtons: actionButtons,
         );
       } else {}
+    });
+  }
+
+  static void startNotificationSchedule() {
+    Timer.periodic(const Duration(seconds: 10), (timer) {
+      showNotification(
+          title: 'ALOJO',
+          body: 'Local Notification',
+          id: 2,
+          channelKey: NotificationChannels.schelduleChannelKey,
+          groupKey: NotificationChannels.schelduleChannelGroupKey);
     });
   }
 }
@@ -132,8 +155,15 @@ class NotificationController {
 }
 
 class NotificationChannels {
-  // Chat channel (for messages only)
-
+  // scheldule channel (for messages only)
+  static String get schelduleChannelKey => "scheldule_channel";
+  static String get schelduleGroupKey => "scheldule group key";
+  static String get schelduleChannelGroupKey => "scheldule_channel_group";
+  static String get schelduleChannelGroupName =>
+      "scheldule notifications channel";
+  static String get schelduleChannelName => "scheldule notifications channels";
+  static String get schelduleChannelDescription =>
+      "Notification channel for scheldule notifications";
   // General channel (for all other notifications)
   static String get generalChannelKey => "general_channel";
   static String get generalGroupKey => "general group key";
