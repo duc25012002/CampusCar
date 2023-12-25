@@ -1,10 +1,12 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, unused_field
 
 import 'package:campus_car_joco/components/MainButton.dart';
+import 'package:campus_car_joco/home/controllers/UploadDataController.dart';
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:campus_car_joco/utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,6 +17,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late UploadDataController _controller;
+
+  @override
+  void initState() {
+    _controller = Get.find<UploadDataController>();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Reponsive().setSize(context);
@@ -41,7 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(height: Reponsive.height * 0.03),
           MainButton(
-            onCLick: () {},
+            onCLick: () {
+              _controller.textRecognition("gallery");
+            },
             title: 'Upload',
           ),
           SizedBox(height: Reponsive.height * 0.02),
@@ -55,7 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(height: Reponsive.height * 0.02),
           MainButton(
-            onCLick: () {},
+            onCLick: () {
+              _controller.textRecognition("camera");
+            },
             title: 'Camera',
           ),
         ],
