@@ -1,11 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:campus_car_joco/components/MainButton.dart';
+import 'package:campus_car_joco/routes/routes.dart';
 
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:campus_car_joco/utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
