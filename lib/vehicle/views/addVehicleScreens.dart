@@ -18,6 +18,12 @@ class AddVehicle extends StatefulWidget {
 
 class _AddVehicleState extends State<AddVehicle> {
   final VehicleController _controller = Get.find<VehicleController>();
+  @override
+  void initState() {
+    String plateNumber = Get.arguments ?? '';
+    _controller.plateNumberController.text = plateNumber;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

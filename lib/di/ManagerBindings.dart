@@ -3,6 +3,7 @@ import 'package:campus_car_joco/vehicle/controller/VehicleController.dart';
 import 'package:get/get.dart';
 
 import '../auth/controller/LoginController.dart';
+import '../home/controllers/UploadDataController.dart';
 
 class ManagerBindings implements Bindings {
   @override
@@ -14,5 +15,6 @@ class ManagerBindings implements Bindings {
     Get.lazyPut(() => LoginController(), fenix: true);
     Get.lazyPut(() => SignUpController(), fenix: true);
     Get.lazyPut(() => VehicleController(), fenix: true);
+    Get.lazyPut(() => UploadDataController(), fenix: true);
   }
 }

@@ -17,7 +17,7 @@ void main() async {
       title: 'Campus Car',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(primaryColor: ColorConst.primaryColor),
-      initialRoute: Routes.login,
+      initialRoute: Routes.home,
       getPages: getPages,
     ),
   );
