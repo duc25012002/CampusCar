@@ -6,7 +6,7 @@ import 'package:campus_car_joco/utils/Utils.dart';
 class MainInput extends StatelessWidget {
   TextEditingController controller;
   String? hint;
-  IconData icon;
+  IconData? icon;
 
   MainInput({
     Key? key,

@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'dart:io';
+import 'package:campus_car_joco/routes/routes.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -37,7 +38,10 @@ class UploadDataController extends GetxController {
       final RecognizedText recognizedText =
           await textRecognizer.processImage(InputImage.fromFile(image!));
       String text = recognizedText.text;
-      print(text);
+      String plateNumber = text.replaceAll(RegExp(r'\s+'), '');
+      // print(plateNumber);
+      Get.toNamed(Routes.addVehicle, arguments: plateNumber);
+      Fluttertoast.showToast(msg: text);
     } else {
       Fluttertoast.showToast(msg: "Please select");
     }

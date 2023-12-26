@@ -32,9 +32,13 @@ dependencies:
   flutter_svg: ^2.0.9
   # hex color
   hexcolor: ^3.0.1
-  #save local
+  #save data local
   shared_preferences: ^2.2.2
+  # notification
+  awesome_notifications: ^0.8.3
+  flutter_material_color_picker: ^1.2.0
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

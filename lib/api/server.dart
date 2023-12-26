@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 import 'package:campus_car_joco/api/ApiDefine.dart';
-import 'package:campus_car_joco/models/TokenModel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../models/TokenModel.dart';
 
 class Server {
   static String? loginToken;
