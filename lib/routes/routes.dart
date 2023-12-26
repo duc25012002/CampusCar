@@ -1,9 +1,8 @@
+import 'package:campus_car_joco/features/auth/views/LoginScreen.dart';
+import 'package:campus_car_joco/features/auth/views/SignUpScreen.dart';
+import 'package:campus_car_joco/features/checkVehicle/views/NewVehicleScreen.dart';
+import 'package:campus_car_joco/features/checkVehicle/views/ScanVehicle.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:campus_car_joco/auth/views/LoginScreen.dart';
-import 'package:campus_car_joco/auth/views/SignUpScreen.dart';
-import 'package:campus_car_joco/home/screens/HomeScreen.dart';
-
-import '../vehicle/views/addVehicleScreens.dart';
 
 class Routes {
   static String login = '/login';

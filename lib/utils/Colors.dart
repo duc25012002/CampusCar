@@ -9,8 +9,8 @@ class ColorConst {
   static var blue4 = const Color(0xff2C6DCA);
   static var blue5 = const Color(0xff757AFE);
   static var blue6 = const Color(0xff87ACDF);
-  var errorColor = Colors.redAccent;
-  var successColor = Colors.green;
+  static var errorColor = Colors.redAccent;
+  static var successColor = Colors.green;
 }
 
 List<Color> graphColors = [

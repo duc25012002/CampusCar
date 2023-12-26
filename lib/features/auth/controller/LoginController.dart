@@ -7,12 +7,11 @@ import 'package:campus_car_joco/api/Server.dart';
 import 'package:campus_car_joco/models/AuthLogin.dart';
 import 'package:campus_car_joco/models/LoginModel.dart';
 import 'package:campus_car_joco/routes/routes.dart';
+import 'package:campus_car_joco/widgets/CustomSnackbar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../widgets/CustomSnackbar.dart';
 
 class LoginController extends GetxController {
   final controllerUserName = TextEditingController();

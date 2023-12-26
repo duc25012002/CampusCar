@@ -1,8 +1,8 @@
 import 'package:campus_car_joco/components/VehicleInput.dart';
+import 'package:campus_car_joco/features/checkVehicle/controller/VehicleController.dart';
+import 'package:campus_car_joco/features/checkVehicle/models/VehicleRequest.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 import 'package:campus_car_joco/utils/Reponsive.dart';
-import 'package:campus_car_joco/vehicle/controller/VehicleController.dart';
-import 'package:campus_car_joco/vehicle/models/VehicleRequest.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:get/get.dart';

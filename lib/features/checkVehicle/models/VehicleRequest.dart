@@ -21,12 +21,6 @@ class VehicleRequest {
   String? phone;
   String? color;
 
-  // factory VehicleRequest.fromJson(Map<String, dynamic> json) => VehicleRequest(
-  //       code: json["code"],
-  //       message: json["message"],
-  //       id: json["data"] != null ? json["data"]["userId"] : -1,
-  //     );
-
   Map<String, dynamic> toJson() => {
         "phone": phone,
         "platenumber": platenumber,

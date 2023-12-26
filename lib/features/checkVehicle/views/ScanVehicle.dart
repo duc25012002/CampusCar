@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, unused_field
 
 import 'package:campus_car_joco/components/MainButton.dart';
-import 'package:campus_car_joco/home/controllers/UploadDataController.dart';
+import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 
 import 'package:campus_car_joco/utils/Reponsive.dart';
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onCLick: () {
               _controller.textRecognition("gallery");
             },
-            title: 'Upload',
+            title: 'Open Gallery',
           ),
           SizedBox(height: Reponsive.height * 0.02),
           Text(
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onCLick: () {
               _controller.textRecognition("camera");
             },
-            title: 'Camera',
+            title: 'Open Camera',
           ),
         ],
       ),

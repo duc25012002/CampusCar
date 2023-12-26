@@ -1,9 +1,8 @@
-import 'package:campus_car_joco/auth/controller/SignUpController.dart';
-import 'package:campus_car_joco/vehicle/controller/VehicleController.dart';
+import 'package:campus_car_joco/features/auth/controller/LoginController.dart';
+import 'package:campus_car_joco/features/auth/controller/SignUpController.dart';
+import 'package:campus_car_joco/features/checkVehicle/controller/VehicleController.dart';
 import 'package:get/get.dart';
-
-import '../auth/controller/LoginController.dart';
-import '../home/controllers/UploadDataController.dart';
+import '../features/checkVehicle/controller/UploadDataController.dart';
 
 class ManagerBindings implements Bindings {
   @override

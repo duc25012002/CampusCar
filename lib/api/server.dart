@@ -8,8 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/TokenModel.dart';
 
 class Server {
-  static String? loginToken;
-
   static Future<String?> getTokenApi() async {
     Map body = {'username': "admin", 'password': "admin123"};
     String jsonBody = json.encode(body);

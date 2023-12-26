@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 import 'package:campus_car_joco/api/ApiDefine.dart';
-import 'package:campus_car_joco/api/server.dart';
+import 'package:campus_car_joco/api/Server.dart';
+import 'package:campus_car_joco/features/checkVehicle/models/VehicleRequest.dart';
 import 'package:campus_car_joco/routes/routes.dart';
-import 'package:campus_car_joco/vehicle/models/VehicleRequest.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../widgets/CustomSnackbar.dart';
+import '../../../../widgets/CustomSnackbar.dart';
 
 class VehicleController extends GetxController {
   TextEditingController nameController = TextEditingController();
@@ -43,7 +43,6 @@ class VehicleController extends GetxController {
     if (response.statusCode == 200) {
       Map<dynamic, dynamic> body = jsonDecode(response.body);
       if (body["code"] == 1) {
-        // dispose();
         customSnackbar("Successful", "New Vehicle is added", Colors.green);
         Get.toNamed(Routes.home);
       } else {
