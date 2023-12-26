@@ -2,8 +2,6 @@
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
 
-import 'package:campus_car_joco/utils/Utils.dart';
-
 class VehicleInput extends StatelessWidget {
   TextEditingController controller;
   String? label;
