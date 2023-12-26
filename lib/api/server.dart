@@ -46,4 +46,19 @@ class Server {
       return null;
     }
   }
+
+  getRequest({String? endPoint, String? token}) async {
+    try {
+      return await http.get(
+        Uri.parse(endPoint!),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': "Bearer ${token!}",
+          "content-type": "application/json ; charset=utf-8"
+        },
+      );
+    } catch (e) {
+      return null;
+    }
+  }
 }
