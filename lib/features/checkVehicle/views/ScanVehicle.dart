@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onCLick: () {
               _controller.textRecognition("gallery");
             },
-            title: 'Open Gallery',
+            title: 'Gallery',
           ),
           SizedBox(height: Reponsive.height * 0.02),
           Text(
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onCLick: () {
               _controller.textRecognition("camera");
             },
-            title: 'Open Camera',
+            title: 'Camera',
           ),
         ],
       ),
