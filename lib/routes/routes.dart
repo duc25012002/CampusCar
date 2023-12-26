@@ -1,3 +1,4 @@
+import 'package:campus_car_joco/search/views/SearchAccessLog.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:campus_car_joco/auth/views/LoginScreen.dart';
 import 'package:campus_car_joco/auth/views/SignUpScreen.dart';
@@ -10,6 +11,7 @@ class Routes {
   static String signUp = '/signUp';
   static String home = "/home";
   static String addVehicle = "/addVehicle";
+  static String searchAccessLog = "/searchAccessLog";
 }
 
 final getPages = [
@@ -29,4 +31,8 @@ final getPages = [
     name: Routes.addVehicle,
     page: () => const AddVehicle(),
   ),
+  GetPage(
+    name: Routes.searchAccessLog,
+    page: () => const SearchAccessLog(),
+  )
 ];

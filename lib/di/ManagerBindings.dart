@@ -1,4 +1,5 @@
 import 'package:campus_car_joco/auth/controller/SignUpController.dart';
+import 'package:campus_car_joco/search/controller/SearchAccessLogController.dart';
 import 'package:campus_car_joco/vehicle/controller/VehicleController.dart';
 import 'package:get/get.dart';
 
@@ -16,5 +17,6 @@ class ManagerBindings implements Bindings {
     Get.lazyPut(() => SignUpController(), fenix: true);
     Get.lazyPut(() => VehicleController(), fenix: true);
     Get.lazyPut(() => UploadDataController(), fenix: true);
+    Get.lazyPut(() => SearchAccessLogController(), fenix: true);
   }
 }
