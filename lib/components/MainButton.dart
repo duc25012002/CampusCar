@@ -1,9 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 // ignore_for_file: file_names
 
+import 'package:campus_car_joco/utils/Colors.dart';
 import 'package:flutter/material.dart';
-
-import 'package:campus_car_joco/utils/Utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainButton extends StatelessWidget {

@@ -2,9 +2,9 @@
 
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/home/controllers/UploadDataController.dart';
+import 'package:campus_car_joco/utils/Colors.dart';
 
 import 'package:campus_car_joco/utils/Reponsive.dart';
-import 'package:campus_car_joco/utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

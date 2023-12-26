@@ -2,7 +2,7 @@ import 'package:campus_car_joco/api/Server.dart';
 import 'package:campus_car_joco/di/ManagerBindings.dart';
 import 'package:campus_car_joco/routes/routes.dart';
 import 'package:campus_car_joco/services/awesome_notification.dart';
-import 'package:campus_car_joco/utils/Utils.dart';
+import 'package:campus_car_joco/utils/Colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
