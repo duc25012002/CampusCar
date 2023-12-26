@@ -1,4 +1,5 @@
-import 'package:campus_car_joco/search/controller/SearchAccessLogController.dart';
+// ignore: file_names
+import 'package:campus_car_joco/features/search/controller/SearchAccessLogController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,16 +21,16 @@ class _SearchAccessLogState extends State<SearchAccessLog> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             TextButton(
                 onPressed: () {
                   //return Get.back();
                 },
-                child: Text("Back")),
+                child: const Text("Back")),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.sizeOf(context).width - 30,
                 child: TextFormField(
                   controller: _controller.keySearchController,
@@ -54,11 +55,10 @@ class _SearchAccessLogState extends State<SearchAccessLog> {
             Center(
               child: TextButton(
                   onPressed: () {
-                    debugPrint("Search");
                     _controller
                         .getAccessLog(_controller.keySearchController.text);
                   },
-                  child: Text("Search")),
+                  child: const Text("Search")),
             )
           ],
         ),

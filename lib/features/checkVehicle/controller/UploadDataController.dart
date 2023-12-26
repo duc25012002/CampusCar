@@ -26,7 +26,7 @@ class UploadDataController extends GetxController {
     }
   }
 
-  Future<void> textRecognition(String choose) async {
+  Future<void> textRecognition(String choose, String args) async {
     if (choose == "camera") {
       await getImageFromCamera();
     } else {
@@ -39,9 +39,11 @@ class UploadDataController extends GetxController {
           await textRecognizer.processImage(InputImage.fromFile(image!));
       String text = recognizedText.text;
       String plateNumber = text.replaceAll(RegExp(r'\s+'), '');
-      // print(plateNumber);
-      Get.toNamed(Routes.addVehicle, arguments: plateNumber);
-      Fluttertoast.showToast(msg: text);
+      if (args == "repair") {
+        Fluttertoast.showToast(msg: "Thêm sửa xe ở đây này");
+      } else {
+        Get.toNamed(Routes.addVehicle, arguments: plateNumber);
+      }
     } else {
       Fluttertoast.showToast(msg: "Please select");
     }

@@ -1,7 +1,7 @@
 import 'package:campus_car_joco/features/auth/controller/LoginController.dart';
 import 'package:campus_car_joco/features/auth/controller/SignUpController.dart';
 import 'package:campus_car_joco/features/checkVehicle/controller/VehicleController.dart';
-import 'package:campus_car_joco/search/controller/SearchAccessLogController.dart';
+import 'package:campus_car_joco/features/search/controller/SearchAccessLogController.dart';
 import 'package:get/get.dart';
 import '../features/checkVehicle/controller/UploadDataController.dart';
 

@@ -2,7 +2,7 @@ import 'package:campus_car_joco/features/auth/views/LoginScreen.dart';
 import 'package:campus_car_joco/features/auth/views/SignUpScreen.dart';
 import 'package:campus_car_joco/features/checkVehicle/views/NewVehicleScreen.dart';
 import 'package:campus_car_joco/features/checkVehicle/views/ScanVehicle.dart';
-import 'package:campus_car_joco/search/views/SearchAccessLog.dart';
+import 'package:campus_car_joco/features/search/views/SearchAccessLog.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class Routes {

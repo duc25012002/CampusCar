@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, unused_field
 
 import 'package:campus_car_joco/components/MainButton.dart';
+import 'package:campus_car_joco/components/NavDrawer.dart';
 import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 
@@ -29,31 +30,52 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Reponsive().setSize(context);
+    var args = Get.arguments;
+    args ??= "repair";
     return Scaffold(
+      appBar: AppBar(),
+      drawer: const NavDrawer(),
       body: Column(
         children: [
-          SizedBox(height: Reponsive.height * 0.1),
-          Center(
-            child: Text(
-              "Campus Car",
-              style: GoogleFonts.inter(
-                fontSize: Reponsive.fontSize * 15,
-                fontWeight: FontWeight.w700,
-                color: ColorConst.primaryColor,
-              ),
-            ),
-          ),
+          args == "repair"
+              ? Center(
+                  child: Text(
+                    "Campus Repair",
+                    style: GoogleFonts.inter(
+                      fontSize: Reponsive.fontSize * 10,
+                      fontWeight: FontWeight.w700,
+                      color: ColorConst.primaryColor,
+                    ),
+                  ),
+                )
+              : Center(
+                  child: Text(
+                    "Campus Garages",
+                    style: GoogleFonts.inter(
+                      fontSize: Reponsive.fontSize * 10,
+                      fontWeight: FontWeight.w700,
+                      color: ColorConst.primaryColor,
+                    ),
+                  ),
+                ),
           SizedBox(height: Reponsive.height * 0.05),
-          SvgPicture.asset(
-            "assets/icon/home_image.svg",
-            width: Reponsive.width,
-            height: Reponsive.height * 0.5,
-            fit: BoxFit.fill,
-          ),
+          args == "repair"
+              ? SvgPicture.asset(
+                  "assets/icon/home_image.svg",
+                  width: Reponsive.width,
+                  height: Reponsive.height * 0.5,
+                  fit: BoxFit.fill,
+                )
+              : SvgPicture.asset(
+                  "assets/icon/car_park.svg",
+                  width: Reponsive.width,
+                  height: Reponsive.height * 0.3,
+                  fit: BoxFit.fill,
+                ),
           SizedBox(height: Reponsive.height * 0.03),
           MainButton(
             onCLick: () {
-              _controller.textRecognition("gallery");
+              _controller.textRecognition("gallery", args);
             },
             title: 'Gallery',
           ),
@@ -69,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: Reponsive.height * 0.02),
           MainButton(
             onCLick: () {
-              _controller.textRecognition("camera");
+              _controller.textRecognition("camera", args);
             },
             title: 'Camera',
           ),

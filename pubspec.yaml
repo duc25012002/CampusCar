@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   # cupertino icons
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   # flutter toast
   fluttertoast: ^8.2.4
   # lottie
@@ -51,7 +51,7 @@ flutter:
     - assets/icon/home_image.svg
     - assets/gif/
     - assets/icon/header_logo_login.jpeg
-
+    - assets/icon/car_park.svg
   fonts:
     - family: CarterOne
       fonts:
