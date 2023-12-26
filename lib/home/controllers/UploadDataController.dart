@@ -38,7 +38,6 @@ class UploadDataController extends GetxController {
           await textRecognizer.processImage(InputImage.fromFile(image!));
       String text = recognizedText.text;
       print(text);
-      Fluttertoast.showToast(msg: text);
     } else {
       Fluttertoast.showToast(msg: "Please select");
     }

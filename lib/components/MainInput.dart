@@ -25,6 +25,7 @@ class MainInput extends StatelessWidget {
         child: TextField(
           controller: controller,
           cursorColor: ColorConst.blue3,
+          obscureText: true,
           decoration: InputDecoration(
               hintText: hint,
               prefixIcon: Material(
