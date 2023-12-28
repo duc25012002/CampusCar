@@ -3,8 +3,11 @@ import 'package:campus_car_joco/components/MainInput.dart';
 import 'package:campus_car_joco/features/auth/controller/LoginController.dart';
 import 'package:campus_car_joco/models/AuthLogin.dart';
 import 'package:campus_car_joco/routes/Routes.dart';
+import 'package:campus_car_joco/utils/Colors.dart';
+import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -28,8 +31,8 @@ class LoginScreenState extends State<LoginScreen> {
       body: Column(
         children: [
           Container(
-            width: MediaQuery.sizeOf(context).width,
-            height: 350,
+            width: Reponsive.width,
+            height: Reponsive.height * 0.35,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/icon/header_logo_login.jpeg"),
@@ -37,19 +40,44 @@ class LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height / 6),
+          SizedBox(height: Reponsive.height * 0.05),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "campus",
+                  style: GoogleFonts.josefinSans(
+                      fontSize: Reponsive.fontSize * 15,
+                      color: ColorConst.primaryColor,
+                      fontWeight: FontWeight.w600),
+                ),
+                TextSpan(
+                  text: "Car",
+                  style: GoogleFonts.josefinSans(
+                      fontSize: Reponsive.fontSize * 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: Reponsive.height * 0.03),
           MainInput(
             controller: _controller.controllerUserName,
             icon: Icons.email,
             hint: "Email",
+            obscureText: false,
+            isPassword: false,
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: Reponsive.height * 0.03),
           MainInput(
             controller: _controller.controllerUserPass,
             icon: Icons.key_off,
             hint: "Password",
+            obscureText: true,
+            isPassword: true,
           ),
-          const SizedBox(height: 25),
+          SizedBox(height: Reponsive.height * 0.03),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -71,15 +99,31 @@ class LoginScreenState extends State<LoginScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 50),
+          SizedBox(height: Reponsive.height * 0.08),
           GestureDetector(
             onTap: () {
               debugPrint("Forgot");
             },
-            child: const Center(
-              child: Text(
-                "Forgot Password ? Refresh Password",
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
+            child: Center(
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Forgot Password ? ",
+                      style: TextStyle(
+                          fontSize: Reponsive.fontSize * 5,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                    TextSpan(
+                      text: " Refresh Password",
+                      style: TextStyle(
+                          fontSize: Reponsive.fontSize * 5,
+                          fontWeight: FontWeight.w700,
+                          color: ColorConst.primaryColor),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
