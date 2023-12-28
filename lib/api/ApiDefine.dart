@@ -10,5 +10,7 @@ class Api {
   static const String addNewVehicle = "$url/v1/api/Vehicle";
   static const String getAccessLog =
       "$url/v1/api/Vehicleaccesslogs/search?searchKey=";
+  static const String searchVehicle = "$url/v1/api/Vehicle/search?searchKey=";
+  static const String searchPhone = "$url/v1/api/User/check-phone-exist?phone=";
   // static const String signup = "$url/api/public/register";
 }

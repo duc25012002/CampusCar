@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 
 import 'dart:io';
+import 'package:campus_car_joco/features/search/controller/SearchVehicleController.dart';
 import 'package:campus_car_joco/routes/routes.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -10,7 +12,8 @@ import 'package:image_picker/image_picker.dart';
 class UploadDataController extends GetxController {
   File? image;
   ImagePicker picker = ImagePicker();
-
+  final SearchVehicleController _controller =
+      Get.find<SearchVehicleController>();
   Future getImageFromGallery() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
@@ -40,7 +43,11 @@ class UploadDataController extends GetxController {
       String text = recognizedText.text;
       String plateNumber = text.replaceAll(RegExp(r'\s+'), '');
       if (args == "repair") {
-        Fluttertoast.showToast(msg: "Thêm sửa xe ở đây này");
+        //bool checkVehicle = await _controller.checkVehicle(plateNumber);
+        bool checkPhone = await _controller.checkPhone("0898283961");
+        if (checkPhone) debugPrint("OKE");
+        // if (checkVehicle)
+        //   Get.toNamed(Routes.repairVehicle, arguments: plateNumber);
       } else {
         Get.toNamed(Routes.addVehicle, arguments: plateNumber);
       }

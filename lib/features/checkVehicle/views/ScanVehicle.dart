@@ -64,13 +64,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   "assets/icon/home_image.svg",
                   width: Reponsive.width,
                   height: Reponsive.height * 0.5,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 )
               : SvgPicture.asset(
                   "assets/icon/car_park.svg",
                   width: Reponsive.width,
                   height: Reponsive.height * 0.3,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.contain,
                 ),
           SizedBox(height: Reponsive.height * 0.03),
           MainButton(

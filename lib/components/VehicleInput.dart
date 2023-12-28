@@ -5,11 +5,14 @@ import 'package:flutter/material.dart';
 class VehicleInput extends StatelessWidget {
   TextEditingController controller;
   String? label;
-
+  String? text;
+  bool? isReadOnly;
   VehicleInput({
     Key? key,
     required this.controller,
     this.label,
+    this.text,
+    this.isReadOnly,
   }) : super(key: key);
 
   @override
@@ -17,6 +20,7 @@ class VehicleInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: TextFormField(
+        readOnly: isReadOnly == null ? false : true,
         style: TextStyle(
           color: Colors.black,
           fontSize: Reponsive.fontSize * 7,
