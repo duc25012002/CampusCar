@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     _controller = Get.find<UploadDataController>();
     controller.getListAccessary();
+    controller.getListInvoice("2003");
     super.initState();
   }
 

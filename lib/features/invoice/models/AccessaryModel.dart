@@ -107,6 +107,18 @@ class Records {
 
   @override
   String toString() {
-    return "MaPhuTung: $maPhuTung   TenPhuTung: $tenPhuTung\n";
+    return 'PhuTung {\n'
+        '  maPhuTung: $maPhuTung,\n'
+        '  maSoPhuTung: $maSoPhuTung,\n'
+        '  tenPhuTung: $tenPhuTung,\n'
+        '  maModel: $maModel,\n'
+        '  tenModel: $tenModel,\n'
+        '  soLuong: $soLuong,\n'
+        '  donVi: $donVi,\n'
+        '  tongTienVon: $tongTienVon,\n'
+        '  giaVonTren1DV: $giaVonTren1DV,\n'
+        '  giaBanTren1DV: $giaBanTren1DV,\n'
+        '  ghiChu: $ghiChu\n'
+        '}';
   }
 }
