@@ -6,6 +6,7 @@ import 'package:campus_car_joco/features/search/controller/SearchAccessLogContro
 import 'package:campus_car_joco/features/search/controller/SearchVehicleController.dart';
 import 'package:get/get.dart';
 import '../features/checkVehicle/controller/UploadDataController.dart';
+import '../features/invoice/controller/InvoiceController.dart';
 
 class ManagerBindings implements Bindings {
   @override
@@ -21,5 +22,6 @@ class ManagerBindings implements Bindings {
     Get.lazyPut(() => SearchAccessLogController(), fenix: true);
     Get.lazyPut(() => RepairVehicleController(), fenix: true);
     Get.lazyPut(() => SearchVehicleController(), fenix: true);
+    Get.lazyPut(() => InvoiceController(), fenix: true);
   }
 }
