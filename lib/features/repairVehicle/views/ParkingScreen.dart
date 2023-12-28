@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RepairVehicle extends StatefulWidget {
-  const RepairVehicle({super.key});
+class ParkingScreen extends StatefulWidget {
+  const ParkingScreen({super.key});
 
   @override
-  State<RepairVehicle> createState() => _RepairVehicleState();
+  State<ParkingScreen> createState() => _ParkingScreenState();
 }
 
-class _RepairVehicleState extends State<RepairVehicle> {
+class _ParkingScreenState extends State<ParkingScreen> {
   final RepairVehicleController _controller =
       Get.find<RepairVehicleController>();
   @override
@@ -62,7 +62,7 @@ class _RepairVehicleState extends State<RepairVehicle> {
             SizedBox(height: Reponsive.height * 0.03),
             VehicleInput(
               isReadOnly: true,
-              text: "Nguyen Vaan A",
+              text: "Your Name",
               controller: _controller.nameController,
               label: "Name",
             ),

@@ -2,7 +2,7 @@ import 'package:campus_car_joco/features/auth/views/LoginScreen.dart';
 import 'package:campus_car_joco/features/auth/views/SignUpScreen.dart';
 import 'package:campus_car_joco/features/checkVehicle/views/NewVehicleScreen.dart';
 import 'package:campus_car_joco/features/checkVehicle/views/ScanVehicle.dart';
-import 'package:campus_car_joco/features/repairVehicle/views/RepairVehicleScreen.dart';
+import 'package:campus_car_joco/features/repairVehicle/views/ParkingScreen.dart';
 import 'package:campus_car_joco/features/search/views/SearchAccessLog.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -38,6 +38,6 @@ final getPages = [
   ),
   GetPage(
     name: Routes.repairVehicle,
-    page: () => const RepairVehicle(),
+    page: () => const ParkingScreen(),
   ),
 ];
