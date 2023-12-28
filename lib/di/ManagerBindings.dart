@@ -1,12 +1,12 @@
 import 'package:campus_car_joco/features/auth/controller/LoginController.dart';
 import 'package:campus_car_joco/features/auth/controller/SignUpController.dart';
-import 'package:campus_car_joco/features/checkVehicle/controller/VehicleController.dart';
-import 'package:campus_car_joco/features/repairVehicle/controller/RepairVehicleController.dart';
-import 'package:campus_car_joco/features/search/controller/SearchAccessLogController.dart';
-import 'package:campus_car_joco/features/search/controller/SearchVehicleRepairController.dart';
+import 'package:campus_car_joco/features/roleParking/addNewVehicle/controller/VehicleController.dart';
+import 'package:campus_car_joco/features/roleRepair/repairVehicle/controller/RepairVehicleController.dart';
+import 'package:campus_car_joco/features/roleParking/searchInOut/controller/SearchAccessLogController.dart';
+import 'package:campus_car_joco/features/roleRepair/searchVehicle/controller/SearchVehicleRepairController.dart';
 import 'package:get/get.dart';
 import '../features/checkVehicle/controller/UploadDataController.dart';
-import '../features/invoice/controller/InvoiceController.dart';
+import '../features/roleRepair/invoice/controller/InvoiceController.dart';
 
 class ManagerBindings implements Bindings {
   @override

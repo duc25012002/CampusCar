@@ -1,16 +1,15 @@
 import 'package:campus_car_joco/features/auth/views/LoginScreen.dart';
 import 'package:campus_car_joco/features/auth/views/SignUpScreen.dart';
-import 'package:campus_car_joco/features/checkVehicle/views/NewVehicleScreen.dart';
 import 'package:campus_car_joco/features/checkVehicle/views/ScanVehicle.dart';
-import 'package:campus_car_joco/features/repairVehicle/views/ParkingScreen.dart';
-import 'package:campus_car_joco/features/search/views/SearchAccessLog.dart';
+import 'package:campus_car_joco/features/roleParking/addNewVehicle/views/ParkingScreen.dart';
+import 'package:campus_car_joco/features/roleParking/searchInOut/views/SearchAccessLog.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class Routes {
   static String login = '/login';
   static String signUp = '/signUp';
   static String home = "/home";
-  static String addVehicle = "/addVehicle";
+  static String parking = "/parking";
   static String searchAccessLog = "/searchAccessLog";
   static String repairVehicle = "/repairVehicle";
 }
@@ -29,8 +28,8 @@ final getPages = [
     page: () => const HomeScreen(),
   ),
   GetPage(
-    name: Routes.addVehicle,
-    page: () => const AddVehicle(),
+    name: Routes.parking,
+    page: () => const ParkingScreen(),
   ),
   GetPage(
     name: Routes.searchAccessLog,

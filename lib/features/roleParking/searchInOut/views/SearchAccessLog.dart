@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:campus_car_joco/components/NavDrawer.dart';
-import 'package:campus_car_joco/features/search/controller/SearchAccessLogController.dart';
+import 'package:campus_car_joco/features/roleParking/searchInOut/controller/SearchAccessLogController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:data_table_2/data_table_2.dart';

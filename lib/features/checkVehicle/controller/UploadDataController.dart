@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'dart:io';
-import 'package:campus_car_joco/features/search/controller/SearchVehicleRepairController.dart';
+import 'package:campus_car_joco/features/roleRepair/searchVehicle/controller/SearchVehicleRepairController.dart';
 import 'package:campus_car_joco/routes/routes.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
@@ -37,30 +37,30 @@ class UploadDataController extends GetxController {
     }
     if (image != null) {
       final textRecognizer = TextRecognizer();
-
       final RecognizedText recognizedText =
           await textRecognizer.processImage(InputImage.fromFile(image!));
       String text = recognizedText.text;
       String plateNumber = text.replaceAll(RegExp(r'\s+'), '');
+
       if (args == "repair") {
         // Xử lý role chỗ này
-          // Sau khi quét biển chuyển data về màn tìm kiếm biển số xe. ( Màn search biển số xe )
-          //. Nếu có tồn tại biển số xe thì sẽ có thông tin SĐT
-              // Từ số điện thoại sẽ kiểm tra xem user tồn tại hay không (API getUserByPhone)
-              // nếu tồn tại thì chuyển sang màn xem lịch sử hoá đơn (Màn xem lịch sử hoá đơn)
-              // nếu không tồn tại thì chuyển sang màn thêm thông tin user (Màn thêm thông tin user)
-              // sau đó sang màn tạo hoá đơn. (Màn tạo hoá đơn. Trong đó có màn thêm các chi tiết phụ tùng)
-          //. Nếu không tồn tại biển số xe thì chuyển sang màn thêm biển số xe
-              // Sau đó kiểm tra xem số điện thoại vừa nhập có trong trường user không
-              // Nếu có thì chuyển sang màn tạo hoá đơn
-              // Nếu không có thì chuyển sang màn thêm thông tin user
+        // Sau khi quét biển chuyển data về màn tìm kiếm biển số xe. ( Màn search biển số xe )
+        //. Nếu có tồn tại biển số xe thì sẽ có thông tin SĐT
+        // Từ số điện thoại sẽ kiểm tra xem user tồn tại hay không (API getUserByPhone)
+        // nếu tồn tại thì chuyển sang màn xem lịch sử hoá đơn (Màn xem lịch sử hoá đơn)
+        // nếu không tồn tại thì chuyển sang màn thêm thông tin user (Màn thêm thông tin user)
+        // sau đó sang màn tạo hoá đơn. (Màn tạo hoá đơn. Trong đó có màn thêm các chi tiết phụ tùng)
+        //. Nếu không tồn tại biển số xe thì chuyển sang màn thêm biển số xe
+        // Sau đó kiểm tra xem số điện thoại vừa nhập có trong trường user không
+        // Nếu có thì chuyển sang màn tạo hoá đơn
+        // Nếu không có thì chuyển sang màn thêm thông tin user
         bool checkVehicle = await _controller.checkVehicle(plateNumber);
 
         if (checkVehicle) {
           if (await _controller.getUserByPhone(_controller.phone ?? "")) {}
         }
       } else {
-        Get.toNamed(Routes.addVehicle, arguments: plateNumber);
+        Get.toNamed(Routes.parking, arguments: plateNumber);
       }
     } else {
       Fluttertoast.showToast(msg: "Please select");

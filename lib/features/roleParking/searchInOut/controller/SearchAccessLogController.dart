@@ -11,8 +11,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 
-import '../../../widgets/CustomSnackbar.dart';
-import '../../../models/AccessLogModel.dart';
+import '../../../../widgets/CustomSnackbar.dart';
+import '../../../../models/AccessLogModel.dart';
 
 class SearchAccessLogController extends GetxController {
   TextEditingController keySearchController = TextEditingController();
