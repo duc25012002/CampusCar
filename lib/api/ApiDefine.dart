@@ -12,5 +12,11 @@ class Api {
       "$url/v1/api/Vehicleaccesslogs/search?searchKey=";
   static const String searchVehicle = "$url/v1/api/Vehicle/search?searchKey=";
   static const String searchPhone = "$url/v1/api/User/check-phone-exist?phone=";
+  static const String getListAccessary =
+      "$url/v1/api/Phutung?page=1&itemsPerPage=100";
+  static const String getUserByPhone =
+      "$url/v1/api/User/get-user-info-by-phone?phone=";
+  static const String getInvoiceByUserID =
+      "$url/v1/api/Hdsuaxe/search?searchKey=";
   // static const String signup = "$url/api/public/register";
 }

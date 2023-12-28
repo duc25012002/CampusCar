@@ -3,6 +3,7 @@
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/components/NavDrawer.dart';
 import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
+import 'package:campus_car_joco/features/invoice/controller/InvoiceController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 
 import 'package:campus_car_joco/utils/Reponsive.dart';
@@ -20,10 +21,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late UploadDataController _controller;
-
+  final InvoiceController controller = Get.find<InvoiceController>();
   @override
   void initState() {
     _controller = Get.find<UploadDataController>();
+    controller.getListAccessary();
     super.initState();
   }
 
