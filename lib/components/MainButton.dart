@@ -2,6 +2,7 @@
 // ignore_for_file: file_names
 
 import 'package:campus_car_joco/utils/Colors.dart';
+import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,11 +18,11 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Container(
-          width: 140,
+          width: Reponsive.width * 0.3,
           decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(100)),
+            borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
