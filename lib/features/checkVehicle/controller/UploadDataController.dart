@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'dart:io';
-import 'package:campus_car_joco/features/search/controller/SearchVehicleController.dart';
+import 'package:campus_car_joco/features/search/controller/SearchVehicleRepairController.dart';
 import 'package:campus_car_joco/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
