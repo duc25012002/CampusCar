@@ -5,7 +5,7 @@
 
 class Api {
   static const String url = "https://parking.alojovn.com";
-  
+
   static const String urlToken = "https://parking.alojovn.com/v1/api/Token";
   static const String login = "$url/v1/api/User/login?";
   static const String addNewVehicle = "$url/v1/api/Vehicle";
@@ -21,7 +21,6 @@ class Api {
       "$url/v1/api/Hdsuaxe/search?searchKey=";
   static const String postInvoice = "$url/v1/api/Hdsuaxe";
 
-  static const String getDetailInvoiceByUserID =
-      "v1/api/Cthdsuaxe/get-all-bill-by-userId?";
+  static const String postInvoiceDetail = "$url/v1/api/Cthdsuaxe";
   // static const String signup = "$url/api/public/register";
 }

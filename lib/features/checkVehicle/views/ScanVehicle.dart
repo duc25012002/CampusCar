@@ -1,22 +1,18 @@
 // ignore_for_file: file_names, unused_field
 
-import 'package:campus_car_joco/components/MainButton.dart';
-import 'package:campus_car_joco/components/NavDrawer.dart';
-<<<<<<< HEAD
-import 'package:campus_car_joco/features/checkVehicle/controller/ScanVehicleController.dart';
-import 'package:campus_car_joco/features/roleRepair/invoice/controller/InvoiceController.dart';
-=======
-import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
 import 'package:campus_car_joco/features/invoice/controller/InvoiceController.dart';
-import 'package:campus_car_joco/features/invoice/models/InvoiceModel.dart';
->>>>>>> e2a2b5a (CC-14|Thêm api post hoá đơn)
-import 'package:campus_car_joco/utils/Colors.dart';
-
-import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../components/MainButton.dart';
+import '../../../components/NavDrawer.dart';
+import '../../../utils/Colors.dart';
+import '../../../utils/Reponsive.dart';
+
+import '../../invoice/models/InvoiceDetail.dart';
+import '../controller/ScanVehicleController.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,14 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     _controller = Get.find<UploadDataController>();
-<<<<<<< HEAD
-    controller.getListAccessary();
-=======
     //controller.getListAccessary();
     //controller.getListInvoice("2003");
-    Invoice invoice = Invoice();
+    InvoiceDetail invoice = InvoiceDetail();
+    controller.postInvoiceDetail(invoice);
     // controller.postInvoice(invoice);
->>>>>>> e2a2b5a (CC-14|Thêm api post hoá đơn)
+
     super.initState();
   }
 

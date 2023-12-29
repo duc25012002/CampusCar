@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:campus_car_joco/features/invoice/models/InvoiceDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,6 +58,41 @@ class InvoiceController extends GetxController {
 
     var response = await server.postRequest(
       endPoint: Api.postInvoice,
+      body: body,
+      token: token,
+    );
+    if (response.statusCode == 200) {
+      Map<dynamic, dynamic> data = jsonDecode(response.body);
+      if (data['code'] == 1) {
+        customSnackbar("Successful", "Create invoice successful", Colors.green);
+      } else {
+        customSnackbar("Fail", "Cannot Create", Colors.red);
+      }
+    } else {
+      debugPrint("ERRORS: ${response.statusCode}");
+    }
+  }
+
+  Future<void> postInvoiceDetail(InvoiceDetail invoiceDetail) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('tokenApi');
+    Server server = Server();
+    InvoiceDetail invoiceDetail2 = InvoiceDetail(
+        maHoaDon: 17,
+        maSoHoaDon: "17",
+        sTT: 2,
+        maPhuTung: 145,
+        maSoPhuTung: "1135A-H3F-0001",
+        chiTietSua: "Bộ vỏ nắp máy trái",
+        soLuong: 1,
+        donGia: 20000,
+        phanTramGiam: 0,
+        thanhTien: 20000,
+        ghiChu: "");
+    String body = invoiceDetailToJson(invoiceDetail2);
+
+    var response = await server.postRequest(
+      endPoint: Api.postInvoiceDetail,
       body: body,
       token: token,
     );
