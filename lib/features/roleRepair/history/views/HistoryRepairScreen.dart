@@ -14,7 +14,7 @@ class _HistoryRepairScreenState extends State<HistoryRepairScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Text("Lịch sử ra vào"),
+            Text("Lịch sử sửa chữa"),
           ],
         ),
       ),

@@ -96,24 +96,22 @@ class SearchVehicleRepairController extends GetxController {
         phone = data['data']['records'][0]['Phone'];
         debugPrint("Số điện thoại của biển số vừa quét: +$phone");
 
-        //. Nếu có tồn tại biển số xe thì sẽ có thông tin SĐT
         // Từ số điện thoại sẽ kiểm tra xem user tồn tại hay không (API getUserByPhone)
-
         // nếu tồn tại thì chuyển sang màn xem lịch sử hoá đơn (Màn xem lịch sử hoá đơn)
-        // nếu không tồn tại thì chuyển sang màn thêm thông tin user (Màn thêm thông tin user)
-        // sau đó sang màn tạo hoá đơn. (Màn tạo hoá đơn. Trong đó có màn thêm các chi tiết phụ tùng)
-
         if (await getUserByPhone(phone ?? "") == true) {
           Get.toNamed(Routes.repairHistory);
         } else {
+          // nếu không tồn tại thì chuyển sang màn thêm thông tin user (Màn thêm thông tin user)
+          // sau đó sang màn tạo hoá đơn. (Màn tạo hoá đơn. Trong đó có màn thêm các chi tiết phụ tùng)
+          //. Nếu có tồn tại biển số xe thì sẽ có thông tin SĐT
           // Get.toNamed(Routes.)
         }
       } else {
         //. Nếu không tồn tại biển số xe thì chuyển sang màn thêm biển số xe
         Get.toNamed(Routes.parking, arguments: "carRepair");
         // Sau đó kiểm tra xem số điện thoại vừa nhập có trong trường user không
-
         // Nếu có thì chuyển sang màn tạo hoá đơn
+        
         // Nếu không có thì chuyển sang màn thêm thông tin user
 
         customSnackbar("Alert", "Not found your history repair", Colors.red);
