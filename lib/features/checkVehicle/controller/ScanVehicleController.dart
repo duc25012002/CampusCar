@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'dart:io';
-import 'package:campus_car_joco/features/roleRepair/searchVehicle/controller/SearchVehicleRepairController.dart';
 import 'package:campus_car_joco/routes/routes.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,8 +11,6 @@ import 'package:image_picker/image_picker.dart';
 class UploadDataController extends GetxController {
   File? image;
   ImagePicker picker = ImagePicker();
-  final SearchVehicleRepairController _controller =
-      Get.find<SearchVehicleRepairController>();
   Future getImageFromGallery() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
@@ -43,7 +40,6 @@ class UploadDataController extends GetxController {
       String plateNumber = text.replaceAll(RegExp(r'\s+'), '');
 
       if (args == "repair") {
-        // Sau khi quét biển chuyển data về màn tìm kiếm biển số xe. ( Màn search biển số xe )
         Get.toNamed(Routes.searchVehicleRepair, arguments: plateNumber);
       } else {
         Get.toNamed(Routes.parking, arguments: plateNumber);

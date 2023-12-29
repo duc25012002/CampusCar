@@ -13,7 +13,9 @@ class _HistoryRepairScreenState extends State<HistoryRepairScreen> {
     return const Scaffold(
       body: SafeArea(
         child: Column(
-          children: [Text("Lịch sử ra vào")],
+          children: [
+            Text("Lịch sử ra vào"),
+          ],
         ),
       ),
     );
