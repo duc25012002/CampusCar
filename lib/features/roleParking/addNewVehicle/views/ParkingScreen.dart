@@ -81,7 +81,7 @@ class _ParkingScreenState extends State<ParkingScreen> {
             SizedBox(height: Reponsive.height * 0.02),
             VehicleInput(
               controller: _controller.phoneController,
-              label: "Mobile no.",
+              label: "Phone Number",
             ),
             SizedBox(height: Reponsive.height * 0.02),
             VehicleInput(

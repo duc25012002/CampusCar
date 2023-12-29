@@ -82,6 +82,7 @@ class SearchVehicleRepairController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('tokenApi');
     Server server = Server();
+
     var response = await server.getRequest(
       endPoint: Api.searchVehicle + keySearch + "&page=1&itemsPerPage=100",
       token: token,
@@ -89,29 +90,28 @@ class SearchVehicleRepairController extends GetxController {
     if (response.statusCode == 400) {
       customSnackbar("Alert", "You need have at least 3 words", Colors.red);
     }
+
     if (response.statusCode == 200) {
       //    AccessLogModel data = accessLogModelFromJson(response.body);
       Map<dynamic, dynamic> data = jsonDecode(response.body);
       if (data['code'] == 1) {
         phone = data['data']['records'][0]['Phone'];
         debugPrint("Số điện thoại của biển số vừa quét: +$phone");
-
         // Từ số điện thoại sẽ kiểm tra xem user tồn tại hay không (API getUserByPhone)
         // nếu tồn tại thì chuyển sang màn xem lịch sử hoá đơn (Màn xem lịch sử hoá đơn)
         if (await getUserByPhone(phone ?? "") == true) {
-          Get.toNamed(Routes.repairHistory);
+          Get.toNamed(Routes.repairHistory, arguments: userModel!.data!.userId);
         } else {
+          
           // nếu không tồn tại thì chuyển sang màn thêm thông tin user (Màn thêm thông tin user)
           // sau đó sang màn tạo hoá đơn. (Màn tạo hoá đơn. Trong đó có màn thêm các chi tiết phụ tùng)
-          //. Nếu có tồn tại biển số xe thì sẽ có thông tin SĐT
-          // Get.toNamed(Routes.)
         }
       } else {
         //. Nếu không tồn tại biển số xe thì chuyển sang màn thêm biển số xe
         Get.toNamed(Routes.parking, arguments: "carRepair");
-        // Sau đó kiểm tra xem số điện thoại vừa nhập có trong trường user không
-        // Nếu có thì chuyển sang màn tạo hoá đơn
         
+        // Nếu có thì chuyển sang màn tạo hoá đơn
+
         // Nếu không có thì chuyển sang màn thêm thông tin user
 
         customSnackbar("Alert", "Not found your history repair", Colors.red);

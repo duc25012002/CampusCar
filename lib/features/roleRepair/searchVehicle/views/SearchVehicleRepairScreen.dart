@@ -16,6 +16,7 @@ class SearchVehicleRepairScreen extends StatefulWidget {
 class _SearchVehicleRepairScreenState extends State<SearchVehicleRepairScreen> {
   final SearchVehicleRepairController _controller =
       Get.find<SearchVehicleRepairController>();
+
   @override
   void initState() {
     var args = Get.arguments;

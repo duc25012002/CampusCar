@@ -11,8 +11,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../roleRepair/invoice/controller/InvoiceController.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -22,11 +20,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late UploadDataController _controller;
-  // final InvoiceController controller = Get.find<InvoiceController>();
   @override
   void initState() {
     _controller = Get.find<UploadDataController>();
-    // controller.getListAccessary();
     super.initState();
   }
 

@@ -14,6 +14,5 @@ class Reponsive {
     width = mediaQueryData.size.width;
     height = mediaQueryData.size.height;
     fontSize = mediaQueryData.devicePixelRatio; //3px - 1 điểm ảnh
-    print(fontSize);
   }
 }

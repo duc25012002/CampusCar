@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class InvoiceScreen extends StatefulWidget {
   const InvoiceScreen({super.key});
 
@@ -17,6 +16,11 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+        body: SafeArea(
+      child: Column(
+        children: [Text("Màn hình tạo hoá đơn")],
+      ),
+    ));
   }
 }

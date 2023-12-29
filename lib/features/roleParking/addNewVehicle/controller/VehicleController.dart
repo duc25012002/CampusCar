@@ -35,6 +35,8 @@ class VehicleController extends GetxController {
     Server server = Server();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('tokenApi');
+    String args = Get.arguments();
+
     var response = await server.postRequest(
       endPoint: Api.addNewVehicle,
       body: vehicleRequestToJson(vehicleRequest),
@@ -44,7 +46,11 @@ class VehicleController extends GetxController {
       Map<dynamic, dynamic> body = jsonDecode(response.body);
       if (body["code"] == 1) {
         customSnackbar("Successful", "New Vehicle is added", Colors.green);
-        Get.toNamed(Routes.home);
+        if (args == "carRepair") {
+          Get.toNamed(Routes.invoice);
+        } else {
+          Get.toNamed(Routes.home);
+        }
       } else {
         customSnackbar("Fail", "New Vehicle was not added", Colors.red);
       }
