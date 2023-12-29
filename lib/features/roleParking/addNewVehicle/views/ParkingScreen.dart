@@ -28,6 +28,8 @@ class _ParkingScreenState extends State<ParkingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var args = Get.arguments;
+    args ??= "carRepair";
     return Scaffold(
       appBar: AppBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -146,13 +148,10 @@ class _ParkingScreenState extends State<ParkingScreen> {
                         openDialog(
                           "Pick your car color",
                           MaterialColorPicker(
-                            // allowShades: false,
                             selectedColor: HexColor(_controller.colorCar.value),
                             onColorChange: (color) {
-                              print(color);
-                              String hexColor =
+                              _controller.colorCar.value =
                                   '#${color.value.toRadixString(16).substring(2)}';
-                              _controller.colorCar.value = hexColor;
                             },
                           ),
                         );

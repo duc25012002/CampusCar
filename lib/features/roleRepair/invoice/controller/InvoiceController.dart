@@ -8,11 +8,13 @@ import '../../../../models/AccessaryModel.dart';
 
 class InvoiceController extends GetxController {
   RxList<Records> listAccessary = <Records>[].obs;
+
   // hàm lấy toàn bộ thông tin phụ tùng
   Future<void> getListAccessary() async {
     Server server = Server();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('tokenApi');
+
     var response = await server.getRequest(
       endPoint: Api.getListAccessary,
       token: token,

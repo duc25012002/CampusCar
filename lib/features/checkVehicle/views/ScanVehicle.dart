@@ -2,7 +2,7 @@
 
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/components/NavDrawer.dart';
-import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
+import 'package:campus_car_joco/features/checkVehicle/controller/ScanVehicleController.dart';
 import 'package:campus_car_joco/features/roleRepair/invoice/controller/InvoiceController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 

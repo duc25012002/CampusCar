@@ -5,7 +5,7 @@ import 'package:campus_car_joco/features/roleRepair/repairVehicle/controller/Rep
 import 'package:campus_car_joco/features/roleParking/searchInOut/controller/SearchAccessLogController.dart';
 import 'package:campus_car_joco/features/roleRepair/searchVehicle/controller/SearchVehicleRepairController.dart';
 import 'package:get/get.dart';
-import '../features/checkVehicle/controller/UploadDataController.dart';
+import '../features/checkVehicle/controller/ScanVehicleController.dart';
 import '../features/roleRepair/invoice/controller/InvoiceController.dart';
 
 class ManagerBindings implements Bindings {
@@ -21,7 +21,7 @@ class ManagerBindings implements Bindings {
     Get.lazyPut(() => UploadDataController(), fenix: true);
     Get.lazyPut(() => SearchAccessLogController(), fenix: true);
     Get.lazyPut(() => RepairVehicleController(), fenix: true);
-    Get.lazyPut(() => SearchVehicleController(), fenix: true);
+    Get.lazyPut(() => SearchVehicleRepairController(), fenix: true);
     Get.lazyPut(() => InvoiceController(), fenix: true);
   }
 }
