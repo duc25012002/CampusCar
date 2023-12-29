@@ -2,8 +2,14 @@
 
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/components/NavDrawer.dart';
+<<<<<<< HEAD
 import 'package:campus_car_joco/features/checkVehicle/controller/ScanVehicleController.dart';
 import 'package:campus_car_joco/features/roleRepair/invoice/controller/InvoiceController.dart';
+=======
+import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
+import 'package:campus_car_joco/features/invoice/controller/InvoiceController.dart';
+import 'package:campus_car_joco/features/invoice/models/InvoiceModel.dart';
+>>>>>>> e2a2b5a (CC-14|Thêm api post hoá đơn)
 import 'package:campus_car_joco/utils/Colors.dart';
 
 import 'package:campus_car_joco/utils/Reponsive.dart';
@@ -25,7 +31,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     _controller = Get.find<UploadDataController>();
+<<<<<<< HEAD
     controller.getListAccessary();
+=======
+    //controller.getListAccessary();
+    //controller.getListInvoice("2003");
+    Invoice invoice = Invoice();
+    // controller.postInvoice(invoice);
+>>>>>>> e2a2b5a (CC-14|Thêm api post hoá đơn)
     super.initState();
   }
 

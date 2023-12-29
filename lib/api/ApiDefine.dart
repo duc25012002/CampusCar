@@ -19,5 +19,9 @@ class Api {
       "$url/v1/api/User/get-user-info-by-phone?phone=";
   static const String getInvoiceByUserID =
       "$url/v1/api/Hdsuaxe/search?searchKey=";
+  static const String postInvoice = "$url/v1/api/Hdsuaxe";
+
+  static const String getDetailInvoiceByUserID =
+      "v1/api/Cthdsuaxe/get-all-bill-by-userId?";
   // static const String signup = "$url/api/public/register";
 }

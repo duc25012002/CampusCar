@@ -2,6 +2,9 @@ import 'dart:convert';
 
 InvoiceModel invoiceModelFromJson(String str) =>
     InvoiceModel.fromJson(json.decode(str));
+String invoiceModelToJson(InvoiceModel data) => json.encode(data.toJson());
+
+String invoiceToJson(Invoice data) => json.encode(data.toJson());
 
 class InvoiceModel {
   int? code;
@@ -107,7 +110,7 @@ class Invoice {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['billId'] = billId;
+    // data['billId'] = billId;
     data['userId'] = userId;
     data['categoryVehicleID'] = categoryVehicleID;
     data['kilometer'] = kilometer;
