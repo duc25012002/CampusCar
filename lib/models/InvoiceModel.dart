@@ -2,6 +2,9 @@ import 'dart:convert';
 
 InvoiceModel invoiceModelFromJson(String str) =>
     InvoiceModel.fromJson(json.decode(str));
+String invoiceModelToJson(InvoiceModel data) => json.encode(data.toJson());
+
+String invoiceToJson(Invoice data) => json.encode(data.toJson());
 
 class InvoiceModel {
   int? code;

@@ -20,7 +20,7 @@ class MainButton extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Container(
-          width: Reponsive.width * 0.3,
+          width: Reponsive.width * 0.5,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(50)),
           ),

@@ -1,22 +1,23 @@
 import 'package:campus_car_joco/components/VehicleInput.dart';
-import 'package:campus_car_joco/features/roleRepair/invoice/controller/InvoiceController.dart';
-import 'package:campus_car_joco/utils/Colors.dart';
+import 'package:campus_car_joco/features/roleRepair/addUserRepair/controller/addUserRepairController.dart';
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
-class InvoiceScreen extends StatefulWidget {
-  const InvoiceScreen({super.key});
+import '../../../../utils/Colors.dart';
+
+class AddNewUserRepairScreen extends StatefulWidget {
+  const AddNewUserRepairScreen({super.key});
 
   @override
-  State<InvoiceScreen> createState() => _InvoiceScreenState();
+  State<AddNewUserRepairScreen> createState() => _AddNewUserRepairScreenState();
 }
 
-class _InvoiceScreenState extends State<InvoiceScreen> {
-  final InvoiceController _controller = Get.find<InvoiceController>();
-
+class _AddNewUserRepairScreenState extends State<AddNewUserRepairScreen> {
+  final AddUserRepairController _controller =
+      Get.find<AddUserRepairController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
             backgroundColor: ColorConst.primaryColor,
           ),
           onPressed: () {
-            _controller.postInvoice();
+            _controller.postUser();
           },
           child: Text("Add",
               style: GoogleFonts.openSans(
@@ -47,7 +48,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
           children: [
             Center(
               child: Text(
-                "Add New Invoice",
+                "Add New User",
                 style: GoogleFonts.inter(
                   fontSize: Reponsive.fontSize * 10,
                   fontWeight: FontWeight.w700,
@@ -57,23 +58,23 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
             ),
             SizedBox(height: Reponsive.height * 0.03),
             VehicleInput(
-              controller: _controller.nameController,
-              label: "Km",
+              controller: _controller.emailController,
+              label: "Email",
             ),
             SizedBox(height: Reponsive.height * 0.02),
             VehicleInput(
               controller: _controller.phoneController,
-              label: "Description",
+              label: "Phone Number",
             ),
             SizedBox(height: Reponsive.height * 0.02),
             VehicleInput(
-              controller: _controller.plateNumberController,
-              label: "Notes",
+              controller: _controller.userName,
+              label: "User Name",
             ),
             SizedBox(height: Reponsive.height * 0.02),
             VehicleInput(
-              controller: _controller.modelController,
-              label: "Amount",
+              controller: _controller.address,
+              label: "Address",
             ),
           ],
         ),

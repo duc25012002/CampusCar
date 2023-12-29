@@ -24,7 +24,7 @@ class NavDrawer extends StatelessWidget {
             leading: const Icon(CupertinoIcons.cube_box),
             tileColor: Colors.transparent,
             title: Text(
-              'Garage',
+              'Parking',
               style: GoogleFonts.inter(fontSize: Reponsive.fontSize * 7),
             ),
             onTap: () {

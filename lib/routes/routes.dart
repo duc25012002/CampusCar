@@ -3,6 +3,7 @@ import 'package:campus_car_joco/features/auth/views/SignUpScreen.dart';
 import 'package:campus_car_joco/features/checkVehicle/views/ScanVehicle.dart';
 import 'package:campus_car_joco/features/roleParking/addNewVehicle/views/ParkingScreen.dart';
 import 'package:campus_car_joco/features/roleParking/searchInOut/views/SearchAccessLog.dart';
+import 'package:campus_car_joco/features/roleRepair/addUserRepair/views/AddNewUserRepairScreen.dart';
 import 'package:campus_car_joco/features/roleRepair/history/views/HistoryRepairScreen.dart';
 import 'package:campus_car_joco/features/roleRepair/invoice/views/InvoiceScreen.dart';
 import 'package:campus_car_joco/features/roleRepair/searchVehicle/views/SearchVehicleRepairScreen.dart';
@@ -18,6 +19,7 @@ class Routes {
   static String invoice = "/invoice";
   static String searchVehicleRepair = "/searchVehicleRepair";
   static String repairHistory = "/repairHistory";
+  static String addNewUserRepair = "/addNewUserRepair";
 }
 
 final getPages = [
@@ -56,5 +58,9 @@ final getPages = [
   GetPage(
     name: Routes.repairHistory,
     page: () => const HistoryRepairScreen(),
+  ),
+  GetPage(
+    name: Routes.addNewUserRepair,
+    page: () => const AddNewUserRepairScreen(),
   )
 ];

@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               : Center(
                   child: Text(
-                    "Campus Garages",
+                    "Campus Car",
                     style: GoogleFonts.inter(
                       fontSize: Reponsive.fontSize * 10,
                       fontWeight: FontWeight.w700,
