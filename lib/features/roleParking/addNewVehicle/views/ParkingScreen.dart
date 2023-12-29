@@ -1,21 +1,24 @@
 import 'package:campus_car_joco/components/VehicleInput.dart';
-import 'package:campus_car_joco/features/repairVehicle/controller/RepairVehicleController.dart';
+import 'package:campus_car_joco/features/roleParking/addNewVehicle/controller/VehicleController.dart';
+import 'package:campus_car_joco/models/VehicleRequest.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 
-class RepairVehicle extends StatefulWidget {
-  const RepairVehicle({super.key});
+class ParkingScreen extends StatefulWidget {
+  const ParkingScreen({super.key});
 
   @override
-  State<RepairVehicle> createState() => _RepairVehicleState();
+  State<ParkingScreen> createState() => _ParkingScreenState();
 }
 
-class _RepairVehicleState extends State<RepairVehicle> {
-  final RepairVehicleController _controller =
-      Get.find<RepairVehicleController>();
+class _ParkingScreenState extends State<ParkingScreen> {
+  final VehicleController _controller = Get.find<VehicleController>();
+
   @override
   void initState() {
     String plateNumber = Get.arguments ?? '';
@@ -25,6 +28,8 @@ class _RepairVehicleState extends State<RepairVehicle> {
 
   @override
   Widget build(BuildContext context) {
+    var args = Get.arguments;
+    args ??= "carRepair";
     return Scaffold(
       appBar: AppBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -37,7 +42,16 @@ class _RepairVehicleState extends State<RepairVehicle> {
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorConst.primaryColor,
           ),
-          onPressed: () {},
+          onPressed: () {
+            _controller.addNewVehicle(VehicleRequest(
+              vehicleHoldName: _controller.nameController.text,
+              categoryVehicleID: _controller.category.value == "Car" ? 0 : 1,
+              platenumber: _controller.plateNumberController.text,
+              model: _controller.modelController.text,
+              phone: _controller.phoneController.text,
+              color: _controller.colorCar.value,
+            ));
+          },
           child: Text("Add",
               style: GoogleFonts.openSans(
                 color: Colors.white,
@@ -51,7 +65,7 @@ class _RepairVehicleState extends State<RepairVehicle> {
           children: [
             Center(
               child: Text(
-                "Invoice Details",
+                "Add New Vehicle",
                 style: GoogleFonts.inter(
                   fontSize: Reponsive.fontSize * 10,
                   fontWeight: FontWeight.w700,
@@ -61,8 +75,6 @@ class _RepairVehicleState extends State<RepairVehicle> {
             ),
             SizedBox(height: Reponsive.height * 0.03),
             VehicleInput(
-              isReadOnly: true,
-              text: "Nguyen Vaan A",
               controller: _controller.nameController,
               label: "Name",
             ),
@@ -88,6 +100,26 @@ class _RepairVehicleState extends State<RepairVehicle> {
                       fontSize: Reponsive.fontSize * 7,
                     ),
                   ),
+                  Obx(
+                    () => DropdownButton(
+                      value: _controller.category.value,
+                      items: _controller.listCategories
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                            style: TextStyle(
+                              fontSize: Reponsive.fontSize * 7,
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        _controller.category.value = newValue!;
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -108,6 +140,24 @@ class _RepairVehicleState extends State<RepairVehicle> {
                       fontSize: Reponsive.fontSize * 7,
                     ),
                   ),
+                  Obx(
+                    () => CircleColor(
+                      circleSize: 30.0,
+                      color: HexColor(_controller.colorCar.value),
+                      onColorChoose: (Color color) {
+                        openDialog(
+                          "Pick your car color",
+                          MaterialColorPicker(
+                            selectedColor: HexColor(_controller.colorCar.value),
+                            onColorChange: (color) {
+                              _controller.colorCar.value =
+                                  '#${color.value.toRadixString(16).substring(2)}';
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             ),

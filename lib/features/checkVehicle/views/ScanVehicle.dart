@@ -2,8 +2,8 @@
 
 import 'package:campus_car_joco/components/MainButton.dart';
 import 'package:campus_car_joco/components/NavDrawer.dart';
-import 'package:campus_car_joco/features/checkVehicle/controller/UploadDataController.dart';
-import 'package:campus_car_joco/features/invoice/controller/InvoiceController.dart';
+import 'package:campus_car_joco/features/checkVehicle/controller/ScanVehicleController.dart';
+import 'package:campus_car_joco/features/roleRepair/invoice/controller/InvoiceController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 
 import 'package:campus_car_joco/utils/Reponsive.dart';
@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     _controller = Get.find<UploadDataController>();
     controller.getListAccessary();
-    controller.getListInvoice("2003");
     super.initState();
   }
 

@@ -1,24 +1,21 @@
 import 'package:campus_car_joco/components/VehicleInput.dart';
-import 'package:campus_car_joco/features/checkVehicle/controller/VehicleController.dart';
-import 'package:campus_car_joco/features/checkVehicle/models/VehicleRequest.dart';
+import 'package:campus_car_joco/features/roleRepair/repairVehicle/controller/RepairVehicleController.dart';
 import 'package:campus_car_joco/utils/Colors.dart';
 import 'package:campus_car_joco/utils/Reponsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 
-class AddVehicle extends StatefulWidget {
-  const AddVehicle({super.key});
+class RepairScreen extends StatefulWidget {
+  const RepairScreen({super.key});
 
   @override
-  State<AddVehicle> createState() => _AddVehicleState();
+  State<RepairScreen> createState() => _RepairScreenState();
 }
 
-class _AddVehicleState extends State<AddVehicle> {
-  final VehicleController _controller = Get.find<VehicleController>();
-
+class _RepairScreenState extends State<RepairScreen> {
+  final RepairVehicleController _controller =
+      Get.find<RepairVehicleController>();
   @override
   void initState() {
     String plateNumber = Get.arguments ?? '';
@@ -40,16 +37,7 @@ class _AddVehicleState extends State<AddVehicle> {
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorConst.primaryColor,
           ),
-          onPressed: () {
-            _controller.addNewVehicle(VehicleRequest(
-              vehicleHoldName: _controller.nameController.text,
-              categoryVehicleID: _controller.category.value == "Car" ? 0 : 1,
-              platenumber: _controller.plateNumberController.text,
-              model: _controller.modelController.text,
-              phone: _controller.phoneController.text,
-              color: _controller.colorCar.value,
-            ));
-          },
+          onPressed: () {},
           child: Text("Add",
               style: GoogleFonts.openSans(
                 color: Colors.white,
@@ -63,7 +51,7 @@ class _AddVehicleState extends State<AddVehicle> {
           children: [
             Center(
               child: Text(
-                "Add New Vehicle",
+                "Invoice Details",
                 style: GoogleFonts.inter(
                   fontSize: Reponsive.fontSize * 10,
                   fontWeight: FontWeight.w700,
@@ -73,6 +61,8 @@ class _AddVehicleState extends State<AddVehicle> {
             ),
             SizedBox(height: Reponsive.height * 0.03),
             VehicleInput(
+              isReadOnly: true,
+              text: "Your Name",
               controller: _controller.nameController,
               label: "Name",
             ),
@@ -98,26 +88,6 @@ class _AddVehicleState extends State<AddVehicle> {
                       fontSize: Reponsive.fontSize * 7,
                     ),
                   ),
-                  Obx(
-                    () => DropdownButton(
-                      value: _controller.category.value,
-                      items: _controller.listCategories
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: TextStyle(
-                              fontSize: Reponsive.fontSize * 7,
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (newValue) {
-                        _controller.category.value = newValue!;
-                      },
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -138,27 +108,6 @@ class _AddVehicleState extends State<AddVehicle> {
                       fontSize: Reponsive.fontSize * 7,
                     ),
                   ),
-                  Obx(
-                    () => CircleColor(
-                      circleSize: 30.0,
-                      color: HexColor(_controller.colorCar.value),
-                      onColorChoose: (Color color) {
-                        openDialog(
-                          "Pick your car color",
-                          MaterialColorPicker(
-                            // allowShades: false,
-                            selectedColor: HexColor(_controller.colorCar.value),
-                            onColorChange: (color) {
-                              print(color);
-                              String hexColor =
-                                  '#${color.value.toRadixString(16).substring(2)}';
-                              _controller.colorCar.value = hexColor;
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  )
                 ],
               ),
             ),
