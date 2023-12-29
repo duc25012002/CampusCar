@@ -99,9 +99,12 @@ class InvoiceController extends GetxController {
     if (response.statusCode == 200) {
       Map<dynamic, dynamic> data = jsonDecode(response.body);
       if (data['code'] == 1) {
-        customSnackbar("Successful", "Create invoice successful", Colors.green);
+        debugPrint("Create invoice detail successful");
+        // customSnackbar(
+        //     "Successful", "Create invoice detail successful", Colors.green);
       } else {
-        customSnackbar("Fail", "Cannot Create", Colors.red);
+        // customSnackbar("Fail", "Cannot Create", Colors.red);
+        debugPrint("Cannot create");
       }
     } else {
       debugPrint("ERRORS: ${response.statusCode}");

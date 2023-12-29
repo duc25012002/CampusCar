@@ -15,6 +15,45 @@ class SearchVehicleController extends GetxController {
   TextEditingController keySearchController = TextEditingController();
   String? phone;
   UserModel? userModel;
+
+  Future<void> postUser(UserInfo userInfo) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('tokenApi');
+    Server server = Server();
+    //fake data
+    UserInfo userInfo2 = UserInfo(
+        userId: 0,
+        userEmail: "hoangNgotest2@gmail.com",
+        userPhone: "0344337888",
+        workingLocation: "Hà Nội",
+        roleID: 3,
+        merchantId: 17,
+        userName: "hoangcmbk3333",
+        gender: 0,
+        status: 1,
+        birthDate: "2023-12-28T17:28:06.695Z",
+        serviceType: 2,
+        password: "12345");
+    String body = userInfoToJson(userInfo2);
+    var response = await server.postRequest(
+      endPoint: Api.postUser,
+      body: body,
+      token: token,
+    );
+    Map<dynamic, dynamic> data = jsonDecode(response.body);
+    debugPrint(data.toString());
+    if (response.statusCode == 200) {
+      if (data['code'] == 1) {
+        customSnackbar(
+            "Successful", "Create User Info Successful", Colors.green);
+      } else {
+        customSnackbar("Fail", "Cannot Create", Colors.red);
+      }
+    } else {
+      debugPrint("ERRORS: ${response.statusCode}");
+    }
+  }
+
   // hàm lấy thông tin user từ số điện thoại. Nếu có thì trả về data userModel phía trên
   Future<bool> getUserByPhone(String phoneNumber) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

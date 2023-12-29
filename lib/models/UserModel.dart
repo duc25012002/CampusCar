@@ -1,18 +1,19 @@
 import 'dart:convert';
 
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+String userInfoToJson(UserInfo data) => json.encode(data.toJson());
 
 class UserModel {
   int? code;
   String? message;
-  Data? data;
+  UserInfo? data;
 
   UserModel({this.code, this.message, this.data});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? UserInfo.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -26,7 +27,7 @@ class UserModel {
   }
 }
 
-class Data {
+class UserInfo {
   int? userId;
   String? userEmail;
   String? userPhone;
@@ -37,26 +38,30 @@ class Data {
   int? merchantId;
   String? userName;
   int? gender;
-  bool? status;
+  int? status;
   String? birthDate;
   int? serviceType;
+  String? workingLocation;
+  String? password;
+  UserInfo({
+    this.userId,
+    this.userEmail,
+    this.userPhone,
+    this.joinDate,
+    this.roleID,
+    this.isManager,
+    this.createdDate,
+    this.merchantId,
+    this.userName,
+    this.gender,
+    this.status,
+    this.birthDate,
+    this.serviceType,
+    this.workingLocation,
+    this.password,
+  });
 
-  Data(
-      {this.userId,
-      this.userEmail,
-      this.userPhone,
-      this.joinDate,
-      this.roleID,
-      this.isManager,
-      this.createdDate,
-      this.merchantId,
-      this.userName,
-      this.gender,
-      this.status,
-      this.birthDate,
-      this.serviceType});
-
-  Data.fromJson(Map<String, dynamic> json) {
+  UserInfo.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
     userEmail = json['userEmail'];
     userPhone = json['userPhone'];
@@ -78,18 +83,17 @@ class Data {
     data['userId'] = userId;
     data['userEmail'] = userEmail;
     data['userPhone'] = userPhone;
-
-    data['joinDate'] = joinDate;
-
+    //data['joinDate'] = joinDate;
+    data['workingLocation'] = workingLocation;
     data['roleID'] = roleID;
-    data['isManager'] = isManager;
-    data['createdDate'] = createdDate;
+    // data['isManager'] = isManager;
+    // data['createdDate'] = createdDate;
     data['merchantId'] = merchantId;
     data['userName'] = userName;
     data['gender'] = gender;
     data['status'] = status;
     data['birthDate'] = birthDate;
-
+    data['password'] = password;
     data['serviceType'] = serviceType;
     return data;
   }

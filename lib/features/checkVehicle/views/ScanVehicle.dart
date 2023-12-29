@@ -1,6 +1,8 @@
 // ignore_for_file: file_names, unused_field
 
 import 'package:campus_car_joco/features/invoice/controller/InvoiceController.dart';
+import 'package:campus_car_joco/features/search/controller/SearchVehicleController.dart';
+import 'package:campus_car_joco/models/UserModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -24,14 +26,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late UploadDataController _controller;
   final InvoiceController controller = Get.find<InvoiceController>();
+  final SearchVehicleController controllerSearch =
+      Get.find<SearchVehicleController>();
   @override
   void initState() {
     _controller = Get.find<UploadDataController>();
-    //controller.getListAccessary();
-    //controller.getListInvoice("2003");
-    InvoiceDetail invoice = InvoiceDetail();
-    controller.postInvoiceDetail(invoice);
-    // controller.postInvoice(invoice);
+    UserInfo userInfo = UserInfo();
+    controllerSearch.postUser(userInfo);
 
     super.initState();
   }
