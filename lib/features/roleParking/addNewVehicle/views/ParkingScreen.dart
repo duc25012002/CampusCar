@@ -9,6 +9,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../../../../routes/routes.dart';
+import '../../../roleRepair/searchVehicle/controller/SearchVehicleRepairController.dart';
+
 class ParkingScreen extends StatefulWidget {
   const ParkingScreen({super.key});
 
@@ -18,7 +21,8 @@ class ParkingScreen extends StatefulWidget {
 
 class _ParkingScreenState extends State<ParkingScreen> {
   final VehicleController _controller = Get.find<VehicleController>();
-
+  final SearchVehicleRepairController _controllerSearch =
+      Get.find<SearchVehicleRepairController>();
   @override
   void initState() {
     String plateNumber = Get.arguments ?? '';
@@ -28,8 +32,8 @@ class _ParkingScreenState extends State<ParkingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var args = Get.arguments;
-    args ??= "carRepair";
+    // var args = Get.arguments;
+    // args ??= "carRepair";
     return Scaffold(
       appBar: AppBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -42,7 +46,7 @@ class _ParkingScreenState extends State<ParkingScreen> {
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorConst.primaryColor,
           ),
-          onPressed: () {
+          onPressed: () async {
             _controller.addNewVehicle(VehicleRequest(
               vehicleHoldName: _controller.nameController.text,
               categoryVehicleID: _controller.category.value == "Car" ? 0 : 1,
@@ -51,6 +55,15 @@ class _ParkingScreenState extends State<ParkingScreen> {
               phone: _controller.phoneController.text,
               color: _controller.colorCar.value,
             ));
+
+            if (await _controllerSearch
+                    .getUserByPhone(_controller.phoneController.text) ==
+                true) {
+              Get.toNamed(Routes.repairHistory,
+                  arguments: _controllerSearch.userModel!.data!.userId);
+            } else {
+              Get.toNamed(Routes.addNewUserRepair);
+            }
           },
           child: Text("Add",
               style: GoogleFonts.openSans(

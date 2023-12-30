@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:campus_car_joco/api/ApiDefine.dart';
 import 'package:campus_car_joco/api/Server.dart';
 import 'package:campus_car_joco/models/VehicleRequest.dart';
-import 'package:campus_car_joco/routes/routes.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -35,7 +35,7 @@ class VehicleController extends GetxController {
     Server server = Server();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('tokenApi');
-    String args = Get.arguments();
+    //String args = Get.arguments();
 
     var response = await server.postRequest(
       endPoint: Api.addNewVehicle,
@@ -46,11 +46,12 @@ class VehicleController extends GetxController {
       Map<dynamic, dynamic> body = jsonDecode(response.body);
       if (body["code"] == 1) {
         customSnackbar("Successful", "New Vehicle is added", Colors.green);
-        if (args == "carRepair") {
-          Get.toNamed(Routes.invoice);
-        } else {
-          Get.toNamed(Routes.home);
-        }
+        //  Get.toNamed(Routes.invoice);
+        // if (args == "carRepair") {
+        //   Get.toNamed(Routes.invoice);
+        // } else {
+        //   Get.toNamed(Routes.home);
+        // }
       } else {
         customSnackbar("Fail", "New Vehicle was not added", Colors.red);
       }

@@ -14,7 +14,7 @@ class AddUserRepairController extends GetxController {
   TextEditingController phoneController = TextEditingController();
   TextEditingController address = TextEditingController();
   TextEditingController userName = TextEditingController();
-
+  int? userIdCreated;
   @override
   void dispose() {
     super.dispose();
@@ -55,6 +55,7 @@ class AddUserRepairController extends GetxController {
       if (data['code'] == 1) {
         customSnackbar(
             "Successful", "Create User Info Successful", Colors.green);
+        userIdCreated = data['data'];
         Get.toNamed(Routes.invoice);
       } else {
         customSnackbar("Fail", "Cannot Create", Colors.red);

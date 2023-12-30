@@ -45,6 +45,7 @@ class SearchVehicleRepairController extends GetxController {
         return false;
       }
     }
+    debugPrint(response.statusCode);
     customSnackbar("Alert", "Server errors !", Colors.red);
     return false;
   }
@@ -105,15 +106,15 @@ class SearchVehicleRepairController extends GetxController {
         }
       } else {
         //. Nếu không tồn tại biển số xe thì chuyển sang màn thêm biển số xe
-        Get.toNamed(Routes.parking, arguments: "carRepair");
-        phone = data['data']['records'][0]['Phone'];
-        debugPrint("Số điện thoại của biển số vừa quét: +$phone");
+        Get.toNamed(Routes.parking, arguments: keySearch);
+        // phone = data['data']['records'][0]['Phone'];
+        // debugPrint("Số điện thoại của biển số vừa quét: +$phone");
 
-        if (await getUserByPhone(phone ?? "") == true) {
-          Get.toNamed(Routes.repairHistory, arguments: userModel!.data!.userId);
-        } else {
-          Get.toNamed(Routes.addNewUserRepair);
-        }
+        // if (await getUserByPhone(phone ?? "") == true) {
+        //   Get.toNamed(Routes.repairHistory, arguments: userModel!.data!.userId);
+        // } else {
+        //   Get.toNamed(Routes.addNewUserRepair);
+        // }
 
         customSnackbar("Alert", "Not found your history repair", Colors.red);
       }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:campus_car_joco/features/roleRepair/searchVehicle/controller/SearchVehicleRepairController.dart';
 import 'package:campus_car_joco/models/InvoiceDetail.dart';
 import 'package:campus_car_joco/models/InvoiceModel.dart';
+import 'package:campus_car_joco/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,12 +12,15 @@ import '../../../../api/ApiDefine.dart';
 import '../../../../api/server.dart';
 import '../../../../models/AccessaryModel.dart';
 import '../../../../widgets/CustomSnackbar.dart';
+import '../../addUserRepair/controller/AddUserRepairController.dart';
 
 class InvoiceController extends GetxController {
   RxList<Records> listAccessary = <Records>[].obs;
   RxList<Invoice> listInvoice = <Invoice>[].obs;
   final SearchVehicleRepairController _controller =
       Get.find<SearchVehicleRepairController>();
+  final AddUserRepairController _addUserController =
+      Get.find<AddUserRepairController>();
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController plateNumberController = TextEditingController();
@@ -34,6 +38,7 @@ class InvoiceController extends GetxController {
     modelController.dispose();
     category.value = "Car";
     colorCar.value = "#0082c8";
+    listInvoice.value = [];
   }
 
   Future<void> getListInvoice(String userId) async {
@@ -81,13 +86,15 @@ class InvoiceController extends GetxController {
 
   Future<void> postInvoice() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? phone = prefs.getString("phone");
-    bool status = await _controller.getUserByPhone(phone!);
+    // String? phone = prefs.getString("phone");
+    // //bool status = await _controller.getUserByPhone(phone!);
     String? token = prefs.getString('tokenApi');
     Server server = Server();
-
+    // print(_addUserController.userIdCreated);
     Invoice invoice = Invoice(
-        userId: _controller.userModel!.data!.userId,
+        billId: 0,
+        userId: _controller.userModel?.data?.userId ??
+            _addUserController.userIdCreated,
         categoryVehicleID: 2,
         kilometer: nameController.text,
         createDate: DateTime.now().toString(),
@@ -99,22 +106,26 @@ class InvoiceController extends GetxController {
         employeeId: 2,
         billStatus: 1,
         notes: plateNumberController.text);
-    String body = invoiceToJson(invoice);
 
+    String body = invoiceToJson(invoice);
+    //  print(body);
     var response = await server.postRequest(
       endPoint: Api.postInvoice,
       body: body,
       token: token,
     );
+    Map<dynamic, dynamic> data = jsonDecode(response.body);
     if (response.statusCode == 200) {
-      Map<dynamic, dynamic> data = jsonDecode(response.body);
+      print(data);
       if (data['code'] == 1) {
         customSnackbar("Successful", "Create invoice successful", Colors.green);
+        Get.toNamed(Routes.home);
       } else {
         customSnackbar("Fail", "Cannot Create", Colors.red);
       }
     } else {
       debugPrint("ERRORS: ${response.statusCode}");
+      print(data);
     }
   }
 
